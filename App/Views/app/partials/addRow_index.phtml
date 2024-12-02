@@ -1,0 +1,61 @@
+<?php foreach($this->view->destaque as $indice_arr => $manga) { ?>
+          <div class="swiper-slide swiper-slide-home"><!--Começo Slide-->
+            <div class="barra"></div><!--Barra-->
+
+            <div class="info-m-head"><!--Titulo Mobile-->
+              <h3><?= $manga['nome'] ?></h3>
+              <span class="gender-home">
+                <em><?= $manga['genero1'] ?></em>
+                <em><?= $manga['genero2'] ?></em>
+                <em><?= $manga['genero3'] ?></em>
+              </span>
+            </div><!--Titulo Mobile-->
+
+            <div class="con-m-btn-home"><!-- botões Mobile -->
+                <a  href="/manga?id_manga=<?= $manga['id'] ?>"  class="btn-green">Ler agora</a>
+                
+                  <?php if($manga['listando_sn'] == 0) { ?>
+                    <a onclick="addRow('/acao?acao=adicionar&id_manga=<?= $manga['id'] ?>', '/requestPartial?partial=addRow_index', 'swiper-wrapper-home')" class="btn-white">Adicionar à fila</a>
+                  <?php } ?>
+                  <?php if($manga['listando_sn'] == 1) { ?>
+                    <a onclick="addRow('/acao?acao=remover&id_manga=<?= $manga['id'] ?>', '/requestPartial?partial=addRow_index', 'swiper-wrapper-home')" class="btn-white">Remover da fila</a>
+                  <?php } ?>
+            </div><!-- botões Mobile -->
+
+
+            <img class = "img-direita" src="<?= $manga['path'] ?>"><!--Img direita-->
+            <div class="info-home" id="info-home">
+                <p>&nbsp<?= $manga['ano_lanc'] ?> . <?= $manga['tipo'] ?></p><!--Ano/lançamento ex: 2021 . Mangá-->
+                <h1 class="hb-small"><?= $manga['nome'] ?></h1><!--Titulo-->
+                <span class="gender-home">&nbsp<em><?= $manga['genero1'] ?></em><em><?= $manga['genero2'] ?></em><em><?= $manga['genero3'] ?></em></span>
+                <div class="aval">
+                  <label class="star-home"></label>
+                  
+                    <em> <?php if(isset($manga['sum_aval']) && $manga['count_aval'] != 0) { ?><em class="star-number"><?= number_format($manga['sum_aval'] / $manga['count_aval']) ?></em><?php } else { ?> <em class="star-number"> 0 </em> <?php } ?> | <?php if($manga['count_visu'] > 0) { ?><?= $manga['count_visu'] ?><?php } else { ?> 0 <?php } ?> <i class="fa-solid fa-eye"></i></em>
+                  
+                   </div><!--Avaliação-->
+                <div class="con-btn-home">
+                  <a href="/manga?id_manga=<?= $manga['id'] ?>" class="btn-green">Ler agora</a>
+                  <?php if($manga['listando_sn'] == 0) { ?>
+                    <?php if($_SESSION['id'] != '' && $_SESSION['nome'] != '') { ?>
+                      <a onclick="addRow('/acao?acao=adicionar&id_manga=<?= $manga['id'] ?>', '/requestPartial?partial=addRow_index', 'swiper-wrapper-home')" class="btn-white">Adicionar à fila</a>
+                    <?php } else { ?>
+                      <a href="/login" class="btn-white">Adicionar à fila</a>
+                    <?php } ?>
+                    
+                  <?php } ?>
+                  <?php if($manga['listando_sn'] == 1) { ?>
+                    <?php if($_SESSION['id'] != '' && $_SESSION['nome'] != '') { ?>
+                      <a onclick="addRow('/acao?acao=remover&id_manga=<?= $manga['id'] ?>', '/requestPartial?partial=addRow_index', 'swiper-wrapper-home')" class="btn-white">Remover da fila</a>
+                    <?php } else { ?>
+                      <a href="/login" class="btn-white">Remover da fila</a>
+                    <?php } ?>
+                  <?php } ?>
+                </div>
+                
+                
+
+            </div>
+              <img class="emb" src="<?= $manga['path'] ?>">
+          </div><!--Fim Slide-->
+          <?php } ?>

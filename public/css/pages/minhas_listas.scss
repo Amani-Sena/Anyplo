@@ -1,0 +1,183 @@
+.titulo-lista {
+    color: var(--whiteF);
+    margin-left: 68px;
+}
+
+.titulo-lista i {
+    color: var(--whiteF);
+    font-size: 30px;
+}
+
+#btn-list {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-top: auto;
+}
+
+#btn-list a {
+    color: var(--green);
+    padding: 0.6rem 1.6rem 0.6rem 1.6rem;
+    transition: 0.3s;
+}
+
+.btn-fila {
+    border-radius: 2rem 0 0 0;
+}
+
+.btn-hist{
+    border-radius: 0 2rem 0 0;
+}
+
+.con-delete-hist {
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+    align-items: center;
+    margin-bottom: 0.6rem;
+    width: 100%;
+}
+
+.con-delete-hist a{
+    color: var(--green);
+}
+
+#btn-list a:hover {
+    color: var(--whiteF);
+    background-color: var(--green);
+}
+
+//Pesquisar
+.con-header-my_lists {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 10rem;
+    border-radius: 4rem;
+    border-bottom: 1.4px solid var(--green);
+    overflow-y: hidden;
+}
+
+.input-search {
+    padding: 2px 20px;
+    width: 550px;
+    height: 46px;
+    margin-left: 60px;
+    border-radius: 22px 0px 44px 0px;
+    border: none;
+}
+
+//Fila
+.con-list-my_list{
+    display: flex;
+    width: 90%;
+    background-color: red;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 1rem;
+}
+
+.selected-list {
+    color: var(--whiteF) !important;
+    background-color: var(--green);
+}
+
+.resultado-img {
+    position: relative;
+    margin-bottom: auto;
+    object-fit: cover;
+    width: 100%;
+    height: 86%;
+    float: left;
+    overflow: hidden;
+}
+
+.resultado-info {
+    width: 100%;
+    height: 14%;
+    text-align: center;
+    overflow-y: hidden;
+    overflow-x: hidden;
+}
+
+//Lista
+
+.con-add-list {
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+    align-items: center;
+    margin-bottom: 0.6rem;
+    width: 100%;
+    margin-top: -2rem;
+}
+
+.con-add-list a{
+    color: var(--green);
+}
+
+.con-list {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 1rem;
+}
+
+.con-list-div {
+    margin-top: 1.6rem;
+    width: 30rem;
+    height: 6.2rem;
+    transition: 0.3s ease-in;
+    overflow: hidden;
+    background-color: var(--green);
+    border: 1.4px solid var(--green);
+    border-radius: 0 2rem 0 2rem;
+}
+
+.con-list-div h5 {
+    max-width: 24rem;
+    //background-color: blue;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis; // Adicionando "..." ao final
+    color: var(--whiteF);
+    padding: 20px 0px 6px 16px;
+}
+
+.con-list-div p {
+    color: var(--whiteF);
+    padding-left: 16px;
+}
+
+.con-list-div:hover {
+    background-color: var(--greenAlt);
+    cursor: pointer;
+}
+
+#con-lists {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 1rem;
+    padding-bottom: 2rem;
+}
+
+@media (max-width:660px) { 
+    #con-lists {
+        width: 88%;
+    }
+}
+
+
+
+

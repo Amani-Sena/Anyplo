@@ -1,0 +1,332 @@
+//Img-banner
+.img-ban-profile {
+    top: 0;
+    margin-top: 3.1rem;
+    width: 100%;
+    height: 25.6rem;
+    background-color: var(--blackF);
+}
+
+.img-ban-profile img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    transition: 0.3s;
+}
+
+.img-ban-profile img:hover {
+    cursor: pointer;
+    opacity: 0.85;
+}
+
+.conf {
+    margin-top: 0.4rem;
+    border: 1px solid var(--whiteF);
+}
+
+//Container Content
+.con-cont {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    //background-color: orange;
+}
+
+//Img-Perfil
+.con-img-profile {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    float: left;
+    //background-color: blueviolet;
+}
+
+.con-img-profile-cont {
+    background-color: var(--blackF);
+    border-radius: 50%;  
+    width: 10.6rem;
+    height: 10.6rem;
+    margin-top: -4.8rem;
+    z-index: 10;
+}
+
+.con-img-profile img {
+    position: relative;
+    float: left;
+    width: 10.6rem;
+    height: 10.6rem;
+    border-radius: 50%;
+    transition: 0.3s;
+}
+
+.con-img-profile img:hover {
+    cursor: pointer;
+    opacity: 0.85;
+}
+
+.name-profile {
+    margin-left: 1rem;
+    margin-top: 1rem;
+}
+
+.name-profile h4 {
+    color: var(--black);
+}
+
+#dropdown_profile {
+    margin-top: 1rem;
+    display: none;
+}
+
+//Settings Menu
+.con-settings-profile {
+    display: flex;
+    justify-content: flex-start;
+    width: 100%;
+    //background-color: paleturquoise;
+    margin-top: 1rem;
+}
+
+.settings-menu {
+    display: flex;
+    flex-direction: column;
+    margin-top: 2rem;
+    margin-left: 1rem;
+    //background-color: brown;
+    width: 20%;
+    float: left;
+}
+
+.settings-menu a {
+    color: var(--black);
+    transition: 0.3s;
+    padding: 0.6rem 0.4rem;
+}
+
+.settings-menu h4 {
+    color: var(--black);
+    
+}
+
+.settings-menu a:hover {
+    color: var(--whiteF);
+    background-color: var(--green);
+    cursor: pointer;
+}
+
+.settings-menu #btn-sair {
+    text-decoration: none;
+    color: var(--black);
+    transition: 0.3s;
+    padding: 0.8rem 0.6rem;
+}
+
+.settings-menu #btn-sair:hover {
+    color: var(--whiteF);
+    background-color: var(--red);
+    cursor: pointer;
+}
+
+.settings-control {
+    display: flex;
+    width: 70%;
+    margin-left: 1rem;
+    min-width: 42rem;
+    text-align: center;
+}
+
+.con-settings {
+    background-color: var(--green);
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.con-form-settings {
+    //background-color: blueviolet;
+    padding: 1rem;
+    width: 48%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: var(--whiteF);
+    margin-bottom: 1rem;
+    
+}
+
+.con-form-settings h4 {
+    padding: 0.6rem;
+}
+
+.con-form-settings p {
+    margin-top: 0.2rem;
+    margin-bottom: 0.2rem;
+}
+
+.con-form-settings form {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    //background-color: bisque;
+    width: 100%;
+}
+
+.con-form-settings input {
+    border: 0;
+    border-bottom: 1px solid var(--whiteF);
+    padding: 0.6rem;
+    width: 100%;
+    outline: 0;
+    background-color: transparent;
+    color: var(--whiteF);
+}
+
+.con-form-settings button {
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+h3, h5 {
+    color: var(--black);
+}
+
+@keyframes is-rotating {
+    to {
+        transform: rotate(1turn);
+    }
+}
+
+.ranking::before {
+    display: inline-block;
+    content: '';
+    width: 10px;
+    height: 10px;
+    //background-color: gold;
+    transform: rotate(45deg);
+    margin-right: 8px;
+}
+
+.button-profile {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border-radius: 500px;
+    background-color: var(--whiteF);
+    width: 200px;
+    margin-left: auto;
+    margin-right: auto;
+    border: none;
+    font-size: 18px;
+    color: var(--greenF);
+    padding: 16px 26px;
+    transition: color 0.3s, border 0.3s, background 0.3s;
+}
+
+.button-profile:hover {
+    background: none;
+    border: 1px solid var(--whiteF);
+    color: var(--whiteF);
+}
+
+
+@media (max-width:1150px) {
+    .con-cont {
+        display: flex;
+        flex-direction: column;
+        width: 86%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .con-img-profile-cont {
+        background-color: var(--blackF);
+        border-radius: 50%;  
+        width: 9rem;
+        height: 9rem;
+        margin-top: -4.8rem;
+        z-index: 10;
+    }
+    
+    .con-img-profile img {
+        position: relative;
+        float: left;
+        width: 9.6rem;
+        height: 9.6rem;
+        border-radius: 50%;
+        transition: 0.3s;
+    }
+}
+
+//1000
+@media (max-width:1000px) {
+
+    .img-ban-profile {
+        top: 0;
+        margin-top: 3.1rem;
+        width: 100%;
+        height: 24rem;
+        background-color: var(--blackF);
+    }
+
+    .con-cont {
+        display: flex;
+        flex-direction: column;
+        width: 86%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .con-img-profile-cont {
+        background-color: var(--blackF);
+        border-radius: 50%;  
+        width: 8rem;
+        height: 8rem;
+        margin-top: -4.8rem;
+        z-index: 10;
+    }
+    
+    .con-img-profile img {
+        position: relative;
+        float: left;
+        width: 8rem;
+        height: 8rem;
+        border-radius: 50%;
+        transition: 0.3s;
+    }
+
+    .settings-menu {
+        display: none;
+    }
+
+    .settings-control {
+        display: flex;
+        width: 100%;
+        margin-left: auto;
+        margin-right: auto;
+        min-width: 0;
+        text-align: center;
+    }
+
+    .con-form-settings {
+        width: 90%;
+    }
+
+    #dropdown_profile {
+        display: flex;
+    }
+
+    .name-profile {
+        //background-color: blueviolet;
+        margin-top: 0.6rem;
+        margin-left: 0.2rem;
+    }
+
+    .con-settings-profile {
+        margin-top: 2rem;
+    }
+}
+

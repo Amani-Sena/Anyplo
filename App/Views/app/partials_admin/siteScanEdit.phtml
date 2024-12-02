@@ -1,0 +1,19 @@
+<h5>Editar Site</h5>
+<form action="/acaoAdmin?acaoAdmin=updateSiteScan" enctype="multipart/form-data" method="post" class="form-gerenciar">
+    <div class="single-select-black" id="con-control">
+        <select name="idScan" class="input" required>
+            <option value="" selected>---</option>
+            <?php foreach($this->view->scans as $indice_arr => $scan) { ?>
+                <option value="<?= $scan['id'] ?>"><?= $scan['nome'] ?> </option>
+            <?php } ?>
+        </select>
+        <i class="fa-solid fa-caret-down"></i>
+        <label class="p-medium" for="idScan">Nome</label>
+    </div>
+
+    <div class="single-input-black">
+        <input type="text" name="siteN" id="siteN" required class="input" >
+        <label class="p-medium" for="siteN">Link do Site</label>
+    </div>
+    <button type="submit" class="btn-green-small-BW">Editar Site</button>
+</form>

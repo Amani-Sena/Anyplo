@@ -1,0 +1,138 @@
+h1 {
+  font-size: 36px;
+}
+
+h2 {
+  font-size: 33px;
+  transition: 0.3s;
+}
+
+h3 {
+  font-size: 30px;
+  transition: 0.3s;
+}
+
+h4 {
+  font-size: 23px;
+  transition: 0.3s;
+}
+
+h5 {
+  font-size: 17px;
+  transition: 0.3s;
+}
+
+h6 {
+  font-size: 14px;
+  transition: 0.3s;
+}
+
+p {
+  line-height: 1.4rem;
+  font-size: 0.9rem;
+  transition: 0.3s;
+}
+
+.p-small {
+  line-height: 1.4rem;
+  font-size: 0.9rem;
+  transition: 0.3s;
+}
+
+.p-medium {
+  line-height: 1.4rem;
+  font-size: 1rem;
+  transition: 0.3s;
+}
+
+.p-big {
+  line-height: 2rem;
+  font-size: 1.14rem;
+  transition: 0.3s;
+}
+
+a {
+  line-height: 1.4rem;
+  font-size: 0.95rem;
+  text-decoration: none;
+  color: var(--black);
+  transition: 0.3s;
+}
+
+.a-small {
+  line-height: 1.4rem;
+  font-size: 0.95rem;
+  text-decoration: none;
+  color: var(--black);
+  transition: 0.3s;
+}
+
+.a-medium {
+  line-height: 1.4rem;
+  font-size: 1.06rem;
+  text-decoration: none;
+  color: var(--black);
+  transition: 0.3s;
+}
+
+.a-big {
+  line-height: 1.5rem;
+  font-size: 1.12rem;
+  text-decoration: none;
+  color: var(--black);
+  transition: 0.3s;
+}
+
+a:hover {
+  color: var(--green);
+  cursor: pointer;
+}
+
+.a-pagination {
+  font-size: 1.14rem;
+  line-height: 1.4rem;
+  color: var(--black);
+  border-radius: 50%;
+  padding: 0.4rem 0.8rem;
+  transition: 0.3s;
+  margin-left: 0.2rem;
+  margin-right: 0.2rem;
+}
+
+.a-pagination:hover {
+  color: var(--whiteF);
+  background-color: var(--green);
+}
+
+.direction-pagination {
+  font-size: 1.14rem;
+  line-height: 1.4rem;
+  color: var(--black);
+  padding: 0.6rem 0.8rem;
+  border-radius: 50%;
+  transition: 0.3s;
+  margin-left: 0.2rem;
+  margin-right: 0.2rem;
+}
+
+.direction-pagination:hover {
+  color: var(--whiteF);
+  background-color: var(--green);
+}
+
+.hb-small {
+  font-size: 3.75rem;
+}
+
+.light {
+  font-weight: lighter;
+}
+
+.normal {
+  font-weight: normal;
+}
+
+.bold {
+  font-weight: bold;
+  letter-spacing: 1px;
+}/*# sourceMappingURL=font_size.css.map */

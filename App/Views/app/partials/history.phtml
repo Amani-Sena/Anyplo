@@ -1,0 +1,41 @@
+<div class="con-delete-hist">
+        <?php if($this->view->count_hist['count'] > 0) { ?>
+            <a class="btn-green-square" onclick="deleteHist('/delete_hist', '/requestPartial?partial=history')">Deletar Histórico</a>
+        <?php } else if($this->view->count_hist['count'] == 0) { ?>
+            <a class="btn-green-square disabled">Deletar Histórico</a>
+        <?php } ?>
+        </div>
+        <?php if($this->view->count_hist['count'] > 0) { ?>
+            <?php foreach($this->view->hist as $indice_arr => $manga) { ?>
+                <?php if($manga['class'] == 1) { ?>
+                    <?php if($manga['class'] == $this->view->class['class']) { ?>
+                        <div class="card-container">
+                            <div class="card-img">
+                                <em class="con-a-cap-card">Cap. <?= $manga['cap'] ?></em>
+                                <a href="/paginas?n_cap=<?= $manga['cap'] ?>&id_manga=<?= $manga['id_manga'] ?>"><img src="<?= $manga['path'] ?>" alt=""></a>
+                            </div>
+                            <div class="card-name">
+                                <a href="/paginas?n_cap=<?= $manga['cap'] ?>&id_manga=<?= $manga['id_manga'] ?>"><?= $manga['nome'] ?></a>
+                            </div>
+                        </div> 
+                        <?php } ?>
+                <?php } else { ?>
+                    <div class="card-container">
+                            <div class="card-img">
+                                <em class="con-a-cap-card">Cap. <?= $manga['cap'] ?></em>
+                                <a href="/paginas?n_cap=<?= $manga['cap'] ?>&id_manga=<?= $manga['id_manga'] ?>"><img src="<?= $manga['path'] ?>" alt=""></a>
+                            </div>
+                            <div class="card-name">
+                                <a href="/paginas?n_cap=<?= $manga['cap'] ?>&id_manga=<?= $manga['id_manga'] ?>"><?= $manga['nome'] ?></a>
+                            </div>
+                        </div> 
+                <?php } ?> 
+            <?php } ?>
+        <?php } else if($this->view->count_hist['count'] == 0) { ?>
+            <div class="con-none-home_list">
+                <div class="con-content-none">
+                    <img src="img/Menhera-chan6.png" alt="">
+                    <p>Nada aqui por enquanto...</p>
+                </div>
+            </div>
+        <?php } ?>

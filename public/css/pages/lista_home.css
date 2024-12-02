@@ -1,0 +1,128 @@
+.con-home_list {
+  margin-left: auto;
+  margin-right: auto;
+  width: 94%;
+  margin-top: 6rem;
+}
+
+.h-title-home_list {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.h-title-home_list h3 {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.h-title-home_list em {
+  white-space: nowrap;
+}
+
+.con-back-home_list {
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  margin-bottom: 1rem;
+  width: 100%;
+}
+
+.h-con-home_list {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.cont-edit-home_list {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.content-lista_home {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 2rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.con-none-home_list {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  min-height: 32rem;
+}
+
+.con-content-none {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.con-content-none img {
+  width: 16rem;
+}
+
+.con-content-none p {
+  color: var(--black);
+  text-align: center;
+  margin-top: 1rem;
+}
+
+#rename-edit-home_list {
+  display: flex;
+}
+
+#delete-edit-home_list {
+  display: flex;
+}
+
+#icon-trash-home_list {
+  display: flex;
+}
+
+#icon-pen-home_list {
+  display: flex;
+}
+
+@media (max-width: 820px) {
+  .h-title-home_list h3 {
+    max-width: 100px;
+  }
+  #btn_dropdown {
+    display: none;
+  }
+  .container-lista_home {
+    width: 96%;
+    justify-content: center;
+  }
+  #rename-edit-home_list {
+    display: none;
+  }
+  #delete-edit-home_list {
+    display: none;
+  }
+  #icon-trash-home_list {
+    display: flex;
+  }
+  #icon-pen-home_list {
+    display: flex;
+  }
+  .content-lista_home {
+    width: 100%;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 2rem;
+  }
+}/*# sourceMappingURL=lista_home.css.map */

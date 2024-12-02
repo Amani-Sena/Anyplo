@@ -1,0 +1,37 @@
+<div class="header-admin-g">
+    <h3>Adicionar Grupo</h3>
+</div>
+<div class="body-admin-gg">
+    <form action="/addScan" enctype="multipart/form-data" method="post" class="form-gerenciar">
+        <div class="single-input-black">
+            <input type="text" name="nome" id="nome" required class="input" >
+            <label class="p-medium" for="nome">Nome do Grupo</label>
+        </div>
+
+        <label onclick="ImgPreview()" for="arquivoImg" class="btn-green-small">Selecionar Logo</label>
+        <input type="file" name="arquivo" id="arquivoImg" class="input-small">
+        <img class="icone-preview-path" id="img-Path" alt="">
+            
+        <div class="single-input-black">
+            <input type="text" name="site" id="site" class="input" >
+            <label class="p-medium" for="site">Site</label>
+        </div>
+        <div class="single-input-black">
+            <input type="text" name="facebook" id="facebook" class="input" >
+            <label class="p-medium" for="facebook">Facebook</label>
+        </div>
+        <div class="single-input-black">
+            <input type="text" name="discord" id="discord" class="input" >
+            <label class="p-medium" for="discord">Discord</label>
+        </div>
+        <div class="single-input-black">
+            <input type="text" name="twitter" id="twitter" class="input" >
+            <label class="p-medium" for="twitter">Twitter</label>
+        </div>
+        <div class="single-input-black">
+            <input type="text" name="doar" id="doar" class="input" >
+            <label class="p-medium" for="doar">Link de Doação</label>
+        </div>
+        <button type="submit" class="btn-green-small-BW">Adicionar Grupo</button>
+    </form>
+</div>

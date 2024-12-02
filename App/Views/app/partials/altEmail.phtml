@@ -1,0 +1,65 @@
+    <!-- Alterar Email -->
+    <div class="con-settings">
+        <div class="con-form-settings">
+            <h4>Alterar E-mail</h4>
+            <p id="sub-title">Escolha seu melhor e-mail para fazer login!</p>
+            <p>Email Atual: <?= $this->view->user_info['email'] ?></p>
+            <?php if($this->view->user_info['id_situ'] != 1) { ?>
+                <p class="c-whiteF bold">Seu email ainda não foi verificado.</p>
+                
+                <a class="btn-white-square-small conf" onclick="sendEmail('/sendEmail?email=<?= $this->view->user_info['email'] ?>&nome=<?= $this->view->user_info['nome'] ?>&chave=<?= $this->view->user_info['chave'] ?>')">Reenviar link de verificação.</a>
+            <?php } ?>
+            <form id="form_altEmail">
+               
+                <div class="single-input-whiteF">
+                    <input name="emailN" id="emailN" required class="input">
+                    <label class="p-medium" for="emailN">Novo E-mail</label>
+                </div>
+                <div class="single-input-whiteF">
+                    <input name="senha" id="senha" type="password" required class="input">
+                    <label class="p-medium" for="senha">Senha</label>
+                </div>
+                <button type="submit" class="btn-white" onclick="altEmail('/altEmail')">Alterar E-mail</button>
+            </form>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!--
+    <div class="container-settings">
+    <div class="con-menu-settings">
+        <h4>Alterar E-mail</h4>
+        <p id="sub-title">Escolha seu melhor e-mail para fazer login!</p>
+        <legend><p>E-mail Atual:  <?= $this->view->user_info['email'] ?></p></legend>
+        <form class="configs" id="form_altEmail">
+            <div class="single-input">
+                <input name="emailN" id="emailN" placeholder="Novo E-mail" required>
+                <label for="emailN">Novo E-mail</label>
+            </div>
+            <div class="single-input">
+                <input name="senha" type="password" id="senha" placeholder="Senha" required>
+                <label for="senha">Senha</label>
+            </div>
+            
+            <button type="submit" class="btn-white" onclick="altEmail('/altEmail')" id="btn_altEmail">Alterar E-mail</button>
+        </form>
+    </div>
+    </div>-->

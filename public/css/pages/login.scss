@@ -1,0 +1,72 @@
+//Login Home
+.content {
+    display: flex;
+    width: 27rem;
+    height: 32rem;
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 7rem;
+    margin-bottom: 9rem;
+    border-radius: 2rem;
+    background-color: var(--bg-white);
+    transition: 0.3s;
+    overflow: hidden;
+}
+
+.content h4 {
+    text-align: center;
+    color: var(--black);
+    margin-top: 1.6rem;
+    margin-bottom: 0.2rem;
+}
+
+.content p {
+    color: var(--black);
+    text-align: center;
+    margin-top: 0.4rem;
+}
+
+
+//First-column
+.first-column {
+    margin-left: auto;
+    margin-right: auto;
+    width: 86%;
+    height: 100%;
+}
+
+.first-column a {
+    transition: 0.3s;
+}
+
+.first-column a:hover {
+    color: var(--greenAlt);
+}
+
+.form-sign-up {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 3rem;
+}
+
+.form-up {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
+@media (max-width:660px) {
+    .content {
+        width: 100%;
+        height: 100%;
+        margin-right: none;
+        margin-left: none;
+        margin-top: 3.4rem;
+        border-radius: 0;
+    }
+}

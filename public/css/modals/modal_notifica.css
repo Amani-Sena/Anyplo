@@ -1,0 +1,71 @@
+.janela-modal-notifica {
+  width: 100vw;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: none;
+  z-index: 99;
+  justify-content: center;
+  background-color: var(--blackOp);
+}
+
+.janela-modal-notifica.abrir {
+  display: flex;
+}
+
+.abrir .modal-notifica {
+  animation: abrirModal 0.3s;
+}
+
+.modal-notifica {
+  display: flex;
+  flex-direction: column;
+  width: 20rem;
+  min-width: 20rem;
+  height: 100%;
+  background-color: var(--green);
+  margin-top: 6.8vh;
+  margin-left: auto;
+}
+
+.modal-notifica h4 {
+  margin-top: 4vh;
+  margin-bottom: 16px;
+  text-align: center;
+  color: var(--whiteF);
+}
+
+.modal-notifica p {
+  text-align: center;
+  color: var(--whiteF);
+}
+
+.fechar-notifica {
+  margin-right: -90px;
+  margin-top: -48px;
+  float: right;
+  right: -20px;
+  border: 0;
+  font-size: 20px;
+}
+
+.fechar-notifica i {
+  color: var(--whiteF);
+}
+
+@keyframes abrirModal {
+  from {
+    opacity: 0;
+    transform: translate3d(0, -20px, -5px);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+@media (max-width: 560px) {
+  .modal-notifica {
+    width: 100%;
+  }
+}/*# sourceMappingURL=modal_notifica.css.map */

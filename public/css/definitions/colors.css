@@ -1,0 +1,73 @@
+:root {
+  --swiper-theme-color: #329542 !important;
+  --whiteF: #f1f1f1;
+  --blackF:#131313;
+  --white: #f1f1f1;
+  --black: #101010;
+  --blackOp:#13131350;
+  --bg-white:#f1f1f1;
+  --bg-black:#131313;
+  --green: #329542;
+  --greenF: #329542;
+  --greenAlt: #206B30;
+  --gray: #333333;
+  --red: #ed2939;
+  transition: 0.3s;
+}
+
+:root[data-theme=dark] {
+  --swiper-theme-color: #329542 !important;
+  --whiteF:#f1f1f1;
+  --blackF:#131313;
+  --white: #1A1A1A;
+  --black: #f1f1f1;
+  --blackOp:#13131350;
+  --bg-white: #1A1A1A;
+  --bg-black: #f1f1f1;
+  --green: #2A7D38;
+  --greenF: #329542;
+  --greenAlt: #329542;
+  --gray: #333333;
+  --red: #ed2939;
+  transition: 0.3s;
+}
+
+.c-whiteF {
+  color: var(--whiteF) !important;
+}
+
+.c-white {
+  color: var(--white) !important;
+}
+
+.c-blackF {
+  color: var(--blackF) !important;
+}
+
+.c-black {
+  color: var(--black) !important;
+}
+
+.c-blackOp {
+  color: var(--blackOp) !important;
+}
+
+.c-greenF {
+  color: var(--greenF) !important;
+}
+
+.c-green {
+  color: var(--green) !important;
+}
+
+.c-greenAlt {
+  color: var(--greenAlt) !important;
+}
+
+.c-gray {
+  color: var(--gray) !important;
+}
+
+.c-red {
+  color: var(--red) !important;
+}/*# sourceMappingURL=colors.css.map */

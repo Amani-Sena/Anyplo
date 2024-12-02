@@ -1,0 +1,13 @@
+<?php if($this->view->mangaI['listando_sn'] == 0) { ?>
+    <a onclick="addRow('/acao?acao=adicionar&id_manga=<?= $this->view->mangaI['id'] ?>', '/requestPartial?partial=addRow&id_manga=<?= $this->view->mangaI['id'] ?>', 'buttons-add-manga')"><i class="fa-solid fa-bookmark"></i></a>
+<?php } ?>
+
+<?php if($this->view->mangaI['listando_sn'] >= 1) { ?>
+    <a onclick="addRow('/acao?acao=remover&id_manga=<?= $this->view->mangaI['id'] ?>', '/requestPartial?partial=addRow&id_manga=<?= $this->view->mangaI['id'] ?>', 'buttons-add-manga')"><i class="fa-solid fa-xmark"></i></a>
+<?php } ?>
+
+<?php if($_SESSION['id'] != '' && $_SESSION['nome'] != '') { ?>
+    <a onclick="abrirModal('janela-modal-addList')" class="btn-green-small-BW">Adicionar à lista</a>
+<?php } else { ?>
+    <a href="/login" class="btn-green-small">Adicionar à lista</a>
+<?php } ?>

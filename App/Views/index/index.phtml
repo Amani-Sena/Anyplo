@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<?php error_reporting(E_ALL); ini_set("display_errors", 0); session_start(); ?>
+<html lang="pt-br">
+<head>
+  
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"/>
+
+    <!-- Title -->
+    <title>Anyplo</title>
+
+</head>
+  
+<body>
+  <?php require_once ("../App/views/partials/header.phtml") ?><!--Cabeçalho -->
+
+      <!-- Swiper home -->
+      <div class="swiper-home js-swiper-home">
+        <div class="swiper-wrapper" id="swiper-wrapper-home">
+        <?php foreach($this->view->destaque as $indice_arr => $manga) { ?>
+          <div class="swiper-slide swiper-slide-home"><!--Começo Slide-->
+            <div class="barra"></div><!--Barra-->
+
+            <div class="info-m-head"><!--Titulo Mobile-->
+              <h3><?= $manga['nome'] ?></h3>
+              <span class="gender-home">
+                <em><?= $manga['genero1'] ?></em>
+                <em><?= $manga['genero2'] ?></em>
+                <em><?= $manga['genero3'] ?></em>
+              </span>
+            </div><!--Titulo Mobile-->
+
+            <div class="con-m-btn-home"><!-- botões Mobile -->
+                <a  href="/manga?id_manga=<?= $manga['id'] ?>"  class="btn-green">Ler agora</a>
+                
+                  <?php if($manga['listando_sn'] == 0) { ?>
+                    <a onclick="addRow('/acao?acao=adicionar&id_manga=<?= $manga['id'] ?>', '/requestPartial?partial=addRow_index', 'swiper-wrapper-home')" class="btn-white">Adicionar à fila</a>
+                  <?php } ?>
+                  <?php if($manga['listando_sn'] == 1) { ?>
+                    <a onclick="addRow('/acao?acao=remover&id_manga=<?= $manga['id'] ?>', '/requestPartial?partial=addRow_index', 'swiper-wrapper-home')" class="btn-white">Remover da fila</a>
+                  <?php } ?>
+            </div><!-- botões Mobile -->
+
+
+            <img class = "img-direita" src="<?= $manga['path'] ?>"><!--Img direita-->
+            <div class="info-home" id="info-home">
+                <p>&nbsp<?= $manga['ano_lanc'] ?> . <?= $manga['tipo'] ?></p><!--Ano/lançamento ex: 2021 . Mangá-->
+                <h1 class="hb-small"><?= $manga['nome'] ?></h1><!--Titulo-->
+                <span class="gender-home">&nbsp<em><?= $manga['genero1'] ?></em><em><?= $manga['genero2'] ?></em><em><?= $manga['genero3'] ?></em></span>
+                <div class="aval">
+                  <label class="star-home"></label>
+                  
+                    <em> <?php if(isset($manga['sum_aval']) && $manga['count_aval'] != 0) { ?><em class="star-number"><?= number_format($manga['sum_aval'] / $manga['count_aval']) ?></em><?php } else { ?> <em class="star-number"> 0 </em> <?php } ?> | <?php if($manga['count_visu'] > 0) { ?><?= $manga['count_visu'] ?><?php } else { ?> 0 <?php } ?> <i class="fa-solid fa-eye"></i></em>
+                  
+                   </div><!--Avaliação-->
+                <div class="con-btn-home">
+                  <a href="/manga?id_manga=<?= $manga['id'] ?>" class="btn-green">Ler agora</a>
+                  <?php if($manga['listando_sn'] == 0) { ?>
+                    <?php if($_SESSION['id'] != '' && $_SESSION['nome'] != '') { ?>
+                      <a onclick="addRow('/acao?acao=adicionar&id_manga=<?= $manga['id'] ?>', '/requestPartial?partial=addRow_index', 'swiper-wrapper-home')" class="btn-white">Adicionar à fila</a>
+                    <?php } else { ?>
+                      <a href="/login" class="btn-white">Adicionar à fila</a>
+                    <?php } ?>
+                    
+                  <?php } ?>
+                  <?php if($manga['listando_sn'] == 1) { ?>
+                    <?php if($_SESSION['id'] != '' && $_SESSION['nome'] != '') { ?>
+                      <a onclick="addRow('/acao?acao=remover&id_manga=<?= $manga['id'] ?>', '/requestPartial?partial=addRow_index', 'swiper-wrapper-home')" class="btn-white">Remover da fila</a>
+                    <?php } else { ?>
+                      <a href="/login" class="btn-white">Remover da fila</a>
+                    <?php } ?>
+                  <?php } ?>
+                </div>
+                
+                
+
+            </div>
+              <img class="emb" src="<?= $manga['path'] ?>">
+          </div><!--Fim Slide-->
+          <?php } ?> 
+        </div>
+        <div class="next-home js-next-home"></div>
+        <div class="prev-home js-prev-home"></div>
+      </div>
+
+      <!-- Swiper Section Lançamentos-->
+        <div class="header-swiper-section c-black">
+          <h4>Lançamentos</h4>
+          <hr>
+        </div>
+        <div class="con-dir-swiper-section">
+        <div class="prev-section js-prev-section"></div>
+        <div class="swiper-section js-swiper-section">
+          <div class="swiper-wrapper wrapper-section">
+            <?php foreach($this->view->lanc as $indice_arr => $manga) { ?>
+              <?php if($manga['class'] == 1) { ?>
+
+                <?php if($manga['class'] == $_SESSION['class']) { ?>
+                  <div class="swiper-slide swiper-slide-section">
+                    <div class="card-img-section">
+                      <a href="/manga?id_manga=<?= $manga['id'] ?>"><img src="<?= $manga['path'] ?>" alt=""></a>
+                    </div>
+                    <div class="card-name-section">
+                      <a href="/manga?id_manga=<?= $manga['id'] ?>"><?= $manga['nome'] ?></a>
+                    </div>
+                  </div>
+                <?php } ?>
+
+              <?php } else { ?>
+              <div class="swiper-slide swiper-slide-section">
+                <div class="card-img-section">
+                  <a href="/manga?id_manga=<?= $manga['id'] ?>"><img src="<?= $manga['path'] ?>" alt=""></a>
+                </div>
+                <div class="card-name-section">
+                  <a href="/manga?id_manga=<?= $manga['id'] ?>"><?= $manga['nome'] ?></a>
+                </div>
+              </div> 
+            <?php } ?>
+            <?php } ?>
+          </div>
+        </div>
+          <div class="next-section js-next-section"></div>
+        </div>
+
+
+        <!-- Swiper Section Populares-->
+        <div class="header-swiper-section c-black">
+          <h4>Populares</h4>
+          <hr>
+        </div>
+        <div class="con-dir-swiper-section">
+        <div class="prev-section js-prev-section-2"></div>
+        <div class="swiper-section js-swiper-section-2">
+          <div class="swiper-wrapper wrapper-section">
+          <?php foreach($this->view->popular as $indice_arr => $manga) { ?>
+              <?php if($manga['class'] == 1) { ?>
+                <?php if($manga['class'] == $this->view->class['class']) { ?>
+                  <div class="swiper-slide swiper-slide-section">
+                    <div class="card-img-section">
+                      <em class="con-a-cap-card-red c-whiteF">A18</em>
+                      <a href="/manga?id_manga=<?= $manga['id'] ?>"><img src="<?= $manga['path'] ?>" alt=""></a>
+                    </div>
+                    <div class="card-name-section">
+                      <a href="/manga?id_manga=<?= $manga['id'] ?>"><?= $manga['nome'] ?></a>
+                    </div>
+                  </div>
+                <?php } ?>
+              <?php } else { ?>
+              <div class="swiper-slide swiper-slide-section">
+                <div class="card-img-section">
+                  <a href="/manga?id_manga=<?= $manga['id'] ?>"><img src="<?= $manga['path'] ?>" alt=""></a>
+                </div>
+                <div class="card-name-section">
+                  <a href="/manga?id_manga=<?= $manga['id'] ?>"><?= $manga['nome'] ?></a>
+                </div>
+              </div> 
+            <?php } ?>
+            <?php } ?>
+          </div>
+        </div>
+          <div class="next-section js-next-section-2"></div>
+        </div>
+
+        <!-- Swiper Section Melhores Avaliados-->
+        <div class="header-swiper-section c-black">
+          <h4>Melhores Avaliados</h4>
+          <hr>
+        </div>
+        <div class="con-dir-swiper-section">
+          <div class="prev-section js-prev-section-3"></div>
+          <div class="swiper-section js-swiper-section-3">
+            <div class="swiper-wrapper wrapper-section">
+            <?php foreach($this->view->MeAv as $indice_arr => $manga) { ?>
+              <?php if($manga['class'] == 1) { ?>
+                <?php if($manga['class'] == $this->view->class['class']) { ?>
+                  <div class="swiper-slide swiper-slide-section">
+                    <div class="card-img-section">
+                      <em class="con-a-cap-card-red c-whiteF">A18</em>
+                      <a href="/manga?id_manga=<?= $manga['id'] ?>"><img src="<?= $manga['path'] ?>" alt=""></a>
+                    </div>
+                    <div class="card-name-section">
+                      <a href="/manga?id_manga=<?= $manga['id'] ?>"><?= $manga['nome'] ?></a>
+                    </div>
+                  </div>
+                <?php } ?>
+              <?php } else { ?>
+              <div class="swiper-slide swiper-slide-section">
+                <div class="card-img-section">
+                  <a href="/manga?id_manga=<?= $manga['id'] ?>"><img src="<?= $manga['path'] ?>" alt=""></a>
+                </div>
+                <div class="card-name-section">
+                  <a href="/manga?id_manga=<?= $manga['id'] ?>"><?= $manga['nome'] ?></a>
+                </div>
+              </div> 
+            <?php } ?>
+            <?php } ?>
+            </div>
+          </div>
+            <div class="next-section js-next-section-3"></div>
+        </div>
+
+
+        <!-- Swiper Section Recém Atualizados -->
+        <div class="header-swiper-section c-black">
+          <h4>Recém Atualizados</h4>
+          <hr>
+        </div>
+        <div class="con-dir-swiper-section">
+        <div class="prev-section js-prev-section-4"></div>
+        <div class="swiper-section js-swiper-section-4">
+          <div class="swiper-wrapper wrapper-section">
+          <?php foreach($this->view->Recem as $indice_arr => $manga) { ?>
+              <?php if($manga['class'] == 1) { ?>
+                <?php if($manga['class'] == $this->view->class['class']) { ?>
+                  <div class="swiper-slide swiper-slide-section">
+                    <div class="card-img-section">
+                      <em class="con-a-cap-card-red c-whiteF">A18</em>
+                      <a href="/manga?id_manga=<?= $manga['id'] ?>"><img src="<?= $manga['path'] ?>" alt=""></a>
+                    </div>
+                    <div class="card-name-section">
+                      <a href="/manga?id_manga=<?= $manga['id'] ?>"><?= $manga['nome'] ?></a>
+                    </div>
+                  </div>
+                <?php } ?>
+              <?php } else { ?>
+              <div class="swiper-slide swiper-slide-section">
+                <div class="card-img-section">
+                  <a href="/manga?id_manga=<?= $manga['id'] ?>"><img src="<?= $manga['path'] ?>" alt=""></a>
+                </div>
+                <div class="card-name-section">
+                  <a href="/manga?id_manga=<?= $manga['id'] ?>"><?= $manga['nome'] ?></a>
+                </div>
+              </div> 
+            <?php } ?>
+            <?php } ?>
+          </div>
+        </div>
+          <div class="next-section js-next-section-4"></div>
+        </div>
+
+
+        <?php if($this->view->class['class'] == 1) { ?>
+        <!-- Swiper +18 -->
+        <div class="header-swiper-section c-black">
+          <h4>+18</h4>
+          <hr>
+        </div>
+        <div class="con-dir-swiper-section">
+        <div class="prev-section js-prev-section-4"></div>
+        <div class="swiper-section js-swiper-section-4">
+          <div class="swiper-wrapper wrapper-section">
+          <?php foreach($this->view->Adult as $indice_arr => $manga) { ?>
+                  <div class="swiper-slide swiper-slide-section">
+                    <div class="card-img-section">
+                      <em class="con-a-cap-card-red c-whiteF">A18</em>
+                      <a href="/manga?id_manga=<?= $manga['id'] ?>"><img src="<?= $manga['path'] ?>" alt=""></a>
+                    </div>
+                    <div class="card-name-section">
+                      <a href="/manga?id_manga=<?= $manga['id'] ?>"><?= $manga['nome'] ?></a>
+                    </div>
+                  </div>
+            <?php } ?>
+          </div>
+        </div>
+          <div class="next-section js-next-section-4"></div>
+        </div>
+        <?php } ?>
+        <?php require_once("../App/views/partials/footer.phtml"); ?><!-- Footer/Rodapé -->
+    </main>
+    
+    
+    
+</body>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+    <script src="js/index.js"></script>
+</html>

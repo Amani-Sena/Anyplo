@@ -1,0 +1,46 @@
+.message {
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    height: 3rem;
+    min-height: 3rem;
+    margin-top: 3rem;
+    width: 100%;
+    align-items: center;
+    background-color: var(--green);
+    z-index: 99;
+    text-align: center;
+    color: var(--whiteF);
+    animation: slidein 0.3s;
+}
+
+.message::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 0.2rem;
+    width: 100px;
+    background-color: var(--whiteF);
+    animation: time 3s forwards;
+}
+
+@keyframes time {
+    0% {
+        width: 0;
+    }
+    100% {
+        width: 100%;
+    }
+}
+
+@keyframes slidein {
+    0% {
+        transform: translateY(-3rem);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}

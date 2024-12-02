@@ -1,0 +1,326 @@
+.con-form {
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 1rem;
+  margin-top: 1rem;
+}
+
+.con-form form {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  width: 100%;
+}
+
+.con-form button {
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+#con-form-addList {
+  display: none;
+  justify-content: center;
+  margin-right: auto;
+  margin-left: auto;
+  width: 100%;
+}
+
+#con-form-addList.show {
+  display: flex;
+}
+
+.single-input-whiteF {
+  width: 100%;
+  margin: 1.2rem 0;
+  position: relative;
+}
+
+.single-input-whiteF label {
+  position: absolute;
+  left: 0;
+  margin-left: 0.3rem;
+  bottom: 0.4rem;
+  cursor: text;
+  transition: 0.3s ease-in-out;
+  color: var(--whiteF);
+}
+
+.single-input-whiteF input {
+  border: 0;
+  padding: 0.6rem;
+  width: 100%;
+  outline: 0;
+  background-color: transparent;
+  border-bottom: 1px solid var(--whiteF);
+  color: var(--whiteF);
+}
+
+.single-input-black {
+  width: 100%;
+  margin: 1.2rem 0;
+  position: relative;
+}
+
+.single-input-black label {
+  position: absolute;
+  left: 0;
+  margin-left: 0.3rem;
+  bottom: 0.4rem;
+  cursor: text;
+  transition: 0.3s ease-in-out;
+  color: var(--black);
+}
+
+.single-input-black input {
+  border: 0;
+  padding: 0.6rem;
+  width: 100%;
+  outline: 0;
+  background-color: transparent;
+  border-bottom: 1px solid var(--black);
+  color: var(--black);
+}
+
+div.single-input-whiteF .input:focus,
+div.single-input-whiteF .input:valid {
+  border-bottom: 2px solid var(--greenAlt);
+}
+
+div.single-input-whiteF .input:focus ~ label,
+div.single-input-whiteF .input:valid ~ label {
+  transform: translateY(-1.6rem);
+  font-size: 0.8rem;
+}
+
+div.single-input-black .input:focus,
+div.single-input-black .input:valid {
+  border-bottom: 2px solid var(--green);
+}
+
+div.single-input-black .input:focus ~ label,
+div.single-input-black .input:valid ~ label {
+  transform: translateY(-1.6rem);
+  font-size: 0.8rem;
+}
+
+.single-select {
+  width: 100%;
+  border: 0;
+  margin: 1.4rem 0;
+  position: relative;
+  outline: none;
+}
+
+.single-select select {
+  border: 0;
+  border-bottom: 1px solid var(--whiteF);
+  padding: 0.6rem;
+  width: 100%;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  background-color: transparent;
+  color: var(--whiteF);
+  transition: 0.3s;
+}
+
+.single-select label {
+  position: absolute;
+  left: 0.3rem;
+  bottom: 0.4rem;
+  cursor: text;
+  transition: 0.3s ease-in-out;
+  color: var(--whiteF);
+  transform: translateY(-1.7rem);
+  font-size: 0.8rem;
+}
+
+.single-select i {
+  position: absolute;
+  right: 1rem;
+  top: 0.4rem;
+  transition: 0.3s;
+  color: var(--whiteF);
+}
+
+div.single-select .input:focus {
+  color: var(--greenAlt);
+  outline: none;
+}
+
+div.single-select .input:focus ~ i {
+  color: var(--greenAlt);
+}
+
+.single-select-black {
+  width: 100%;
+  border: 0;
+  margin: 1.4rem 0;
+  position: relative;
+  outline: none;
+}
+
+.single-select-black select {
+  border: 0;
+  border-bottom: 1px solid var(--black);
+  padding: 0.6rem;
+  width: 100%;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  background-color: transparent;
+  color: var(--black);
+  transition: 0.3s;
+}
+
+.single-select-black label {
+  position: absolute;
+  left: 0.3rem;
+  bottom: 0.4rem;
+  cursor: text;
+  transition: 0.3s ease-in-out;
+  color: var(--black);
+  transform: translateY(-1.7rem);
+  font-size: 0.8rem;
+}
+
+.single-select-black i {
+  position: absolute;
+  right: 1rem;
+  top: 0.4rem;
+  transition: 0.3s;
+  color: var(--black);
+}
+
+div.single-select-black .input:focus {
+  color: var(--greenAlt);
+  outline: none;
+}
+
+div.single-select-black .input:focus ~ i {
+  color: var(--greenAlt);
+}
+
+.input-small {
+  margin-bottom: 8px;
+  margin-top: 8px;
+  padding: 2px 16px;
+  width: 60%;
+  height: 4vh;
+  border-radius: 22px;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  background-color: none;
+}
+
+.textarea-small {
+  width: 40%;
+  margin-bottom: 8px;
+  margin-top: 8px;
+  border-radius: 22px;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  background-color: none;
+}
+
+.con-switch {
+  margin-top: 0.6rem;
+}
+
+.switch {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.switch .switch-text {
+  padding-left: 0.4rem;
+}
+
+.switch .switch-wrapper-report {
+  display: inline-block;
+  width: 3rem;
+  height: 1.4rem;
+  position: relative;
+}
+
+.switch .switch-wrapper-report .switch-btn {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 2rem;
+  background-color: var(--greenAlt);
+}
+
+.switch .switch-wrapper-report input {
+  display: none;
+}
+
+.switch .switch-wrapper-report .switch-btn::before {
+  content: "";
+  width: 1.1rem;
+  height: 1.1rem;
+  position: absolute;
+  left: 0.2rem;
+  bottom: 0.2rem;
+  border-radius: 50%;
+  transition: 0.3s all ease;
+  background-color: var(--green);
+}
+
+.switch .switch-wrapper-report input:checked + .switch-btn::before {
+  background-color: var(--whiteF);
+  transform: translateX(1.6rem);
+}
+
+.switch .switch-wrapper {
+  display: inline-block;
+  width: 3.6rem;
+  height: 2rem;
+  position: relative;
+}
+
+.switch .switch-wrapper .switch-btn {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 2rem;
+  background-color: var(--greenAlt);
+}
+
+.switch .switch-wrapper input {
+  display: none;
+}
+
+.switch .switch-wrapper .switch-btn::before {
+  content: "";
+  width: 1.6rem;
+  height: 1.6rem;
+  position: absolute;
+  left: 0.2rem;
+  bottom: 0.2rem;
+  border-radius: 50%;
+  transition: 0.3s all ease;
+  background-color: var(--green);
+}
+
+.switch .switch-wrapper input:checked + .switch-btn::before {
+  background-color: var(--whiteF);
+  transform: translateX(1.6rem);
+}/*# sourceMappingURL=input.css.map */

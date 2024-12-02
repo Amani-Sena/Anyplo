@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+
+    <!-- Title -->
+    <title><?= $this->view->lista['nome'] ?> - Anyplo</title>
+
+</head>
+
+<body>
+    
+    <?php require_once ("../App/Views/partials/header.phtml") ?>
+    
+        <div class="con-home_list">
+            <div class="con-back-home_list">
+                <a href="/lista" class="a-medium btn-green-square"><i class="fa-solid fa-caret-left"></i> Voltar às Minhas Listas </a>
+            </div>
+            <div class="h-con-home_list">
+                <div class="h-title-home_list" id="h-title-home_list">
+                    <h3 class="c-green"><?= $this->view->lista['nome'] ?></h3>
+                    <em class="p-small count-home_list c-green">
+                    &nbsp<?= $this->view->count_itens['count_itens'] ?>/50 
+                        <em id="itens-lista-home">Itens</em>
+                    </em>
+                </div>
+                <div class="con-count-home_list">
+                    
+                </div>
+                        <div class="con-dropdown">
+                            <div class="con-btn-dropdown" onclick="dropE()">
+                                <a class="a-medium btn-green-square click-edit f-right">
+                                    <i class="fa-solid fa-sliders"></i> 
+                                    <em id="btn_dropdown">Editar</em>
+                                </a>
+                            </div>
+                            <div class="list-dropdown">
+                                <ul class="list-drop">
+                                    <li class="links-dropdown"><a onclick="abrirModal('janela-modal-edit')">Renomear</a></li>
+                                    <li class="links-dropdown"><a onclick="abrirModal('janela-modal-remover')">Deletar</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                </h3>
+            </div>
+                    
+            <div class="content-lista_home">
+                <?php if($this->view->count_itens['count_itens'] > 0) { ?>
+                <?php foreach($this->view->itens as $indice_arr => $manga) { ?>
+                    
+                    <div class="card-container">
+                        <div class="card-img">
+                            <a href="/manga?id_manga=<?= $manga['id'] ?>"><img src="<?= $manga['path'] ?>" alt=""></a>
+                        </div>
+                        <div class="card-name">
+                            <a href="/manga?id_manga=<?= $manga['id'] ?>"><?= $manga['nome'] ?></a>
+                        </div>
+                    </div>
+                <?php } ?>
+
+
+                <?php if($this->view->limitF > 1) { ?>
+                <div class="container-pagination">
+                    <a href="?page=1&id_lista=<?= $this->view->lista['id'] ?>" class="direction-pagination"><i class="fa-solid fa-chevron-left"></i></a>
+                    
+                    <?php for($a = $this->view->page_atual - $this->view->max_links; $a <= $this->view->page_atual - 1; $a++) { ?>
+                        <?php if($a >= 1) { ?>
+                            <a href="?page=<?= $a ?>&id_lista=<?= $this->view->lista['id'] ?>" class="a-pagination"><?= $a ?></a>
+                        <?php } ?>
+                    <?php } ?>
+
+                        <p class="a-pagination active-pagination"><?= $this->view->page_atual ?></p>
+
+                    <?php for($b = $this->view->page_atual + 1; $b <= $this->view->page_atual + $this->view->max_links; $b++) { ?>
+                        <?php if($b <= $this->view->limitF) { ?>
+                            <a href="?page=<?= $b ?>&id_lista=<?= $this->view->lista['id'] ?>" class="a-pagination"><?= $b ?></a>
+                        <?php } ?>
+                    <?php } ?>
+                    
+                    <a href="?page=<?= $this->view->limitF ?>&id_lista=<?= $this->view->lista['id'] ?>" class="direction-pagination"><i class="fa-solid fa-chevron-right"></i></a>
+                </div>
+            <?php } ?>
+            <?php } else { ?>
+                <div class="con-none-home_list">
+                    <div class="con-content-none">
+                        <img src="img/Menhera-chan1.png" alt="">
+                        <p>Parece estar vazio...</p>
+                    </div>
+                </div>
+            <?php } ?>
+            </div>
+        </div> 
+        <?php require_once ("../App/views/partials/footer.phtml") ?><!-- Footer/Rodapé -->
+</main>
+    <!--Edit Lista-->
+    <div class="janela-modal" id="janela-modal-edit">
+        <div class="modal">
+            <div class="con-form">
+                <div class="con-close">
+                    <a class="fechar"><i class="fa-solid fa-x" id="fechar"></i></a>
+                </div>
+                
+                <h4>Editar lista</h4>
+                <form id="form_edit" method="post">
+                    <!--<input type="text" name="nome" placeholder="Nome da Lista" required maxlength="16">-->
+                    <div class="single-input-whiteF">
+                        <input name="nome" id="login" required maxlength="16" class="input" >
+                        <label class="p-medium" for="login">Nome da Lista</label>
+                    </div>
+                    <div class="btn-modal">
+                        <button class="btn-white" type="submit" onclick="editList('/acao?acao=editarLista&id_lista=<?= $this->view->lista['id'] ?>', '/requestPartial?partial=header_list_home&id_lista=<?= $this->view->lista['id'] ?>')">Editar lista</button>
+                        <a class="btn-white" id="btn-cancel">Cancelar</a> 
+                    </div>
+                </form>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Remover Lista -->
+    <div class="janela-modal" id="janela-modal-remover">
+        <div class="modal">
+            <div class="con-content-modal">
+                <div class="con-close">
+                    <a class="fechar"><i class="fa-solid fa-x" id="fechar"></i></a>
+                </div>
+                <h4>Deletar lista</h4>
+                <p>Tem certeza de que deseja deletar esta lista?</p>
+                <form action="" method="post">
+                    <div class="btn-modal">
+                        <a class="btn-white" href="/acao?acao=removerLista&red=/lista&id_lista=<?= $this->view->lista['id'] ?>">Deletar</a>
+                        <a class="btn-white" id="btn-cancel">Cancelar</a> 
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/lista_home.js"></script>
+</body>
+</html>
+

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+
+    <!-- Title -->
+    <title><?= $this->view->categoriaI['nome'] ?> - Anyplo</title>
+
+</head>
+
+<body>
+    <?php require_once ("../App/Views/partials/header.phtml") ?>
+   
+    
+        <div class="container-categoria">
+            <div class="header-categoria">
+                <h4><?= $this->view->categoriaI['nome'] ?></h4>
+                <p><?= $this->view->categoriaI['descricao'] ?></p>
+            </div>
+          
+           <?php foreach($this->view->mangaI as $indice_arr => $manga) { ?>
+            <?php if($manga['class'] == 1) { ?>
+                <?php if($manga['class'] == $this->view->class['class']) { ?>
+                    <div class="card-container">
+                        <div class="card-img">
+                            <em class="con-a-cap-card-red c-whiteF">A18</em>
+                            <a href="/manga?id_manga=<?= $manga['id'] ?>"><img src="<?= $manga['path'] ?>" alt=""></a>
+                        </div>
+                        <div class="card-name">
+                            <a href="/manga?id_manga=<?= $manga['id'] ?>"><?= $manga['nome'] ?></a>
+                        </div>
+                    </div>
+                <?php } ?>
+            <?php } else { ?>
+            <div class="card-container">
+                <div class="card-img">
+                    <a href="/manga?id_manga=<?= $manga['id'] ?>"><img src="<?= $manga['path'] ?>" alt=""></a>
+                </div>
+                <div class="card-name">
+                    <a href="/manga?id_manga=<?= $manga['id'] ?>"><?= $manga['nome'] ?></a>
+                </div>
+            </div>
+            <?php } ?>
+            <?php } ?>
+
+            <?php if($this->view->limitF > 1) { ?>
+                <div class="container-pagination">
+                <a href="?page=1&status=<?= $this->view->status ?>&genero=<?= $this->view->genero ?>" class="direction-pagination"><i class="fa-solid fa-chevron-left"></i></a>
+                    
+                    <?php for($a = $this->view->page_atual - $this->view->max_links; $a <= $this->view->page_atual - 1; $a++) { ?>
+                        <?php if($a >= 1) { ?>
+                            <a href="?page=<?= $a ?>&status=<?= $this->view->status ?>&genero=<?= $this->view->genero ?>" class="a-pagination"><?= $a ?></a>
+                        <?php } ?>
+                    <?php } ?>
+
+                        <p class="a-pagination active-pagination"><?= $this->view->page_atual ?></p>
+
+                    <?php for($b = $this->view->page_atual + 1; $b <= $this->view->page_atual + $this->view->max_links; $b++) { ?>
+                        <?php if($b <= $this->view->limitF) { ?>
+                            <a href="?page=<?= $b ?>&status=<?= $this->view->status ?>&genero=<?= $this->view->genero ?>" class="a-pagination"><?= $b ?></a>
+                        <?php } ?>
+                    <?php } ?>
+                    
+                    <a href="?page=<?= $this->view->limitF ?>&status=<?= $this->view->status ?>&genero=<?= $this->view->genero ?>" class="direction-pagination"><i class="fa-solid fa-chevron-right"></i></a>
+                </div>
+            <?php } ?>
+        </div>
+        <?php require_once ("../App/views/partials/footer.phtml") ?><!-- Footer/Rodapé -->
+</main>
+</body>
+</html>

@@ -1,0 +1,106 @@
+<?php foreach($this->view->comments as $indice_arr => $comments) { ?>
+                <div class="con-comments-user">
+                    <div class="img-comments">
+                        <img src="<?= $comments['icone'] ?>" alt="">
+                    </div>
+                    <div class="info-comments">
+                        <p class="p-medium"><?= $comments['nome'] ?>
+                        <?php if($comments['titulo'] != null) { ?>
+                            <em class="p-small"> - <?= $comments['titulo'] ?></em></p>
+                        <?php } ?>
+
+                        <?php if($comments['spoiler'] == 0) { ?>
+                            <p class="p-small"><?= $comments['comentario'] ?></p>
+                        <?php } else { ?>
+                            <p class="p-small spoilerText"><?= $comments['comentario'] ?></p>
+                        <?php } ?>
+
+                        <?php if($comments['id_usuario'] == $_SESSION['id']) { ?>
+                            <div class="options-comments">
+                                <a class="p-small disabled">Responder</a>
+                                <a class="p-small disabled">Denunciar</a>
+                            </div>
+                        <?php } else { ?>
+                            <div class="options-comments">
+                                <a class="p-small" onclick="showHide('<?= $comments['id'] ?>')">Responder</a>
+                                <a class="p-small" onclick="denunciarComments('/denunciar?id_conteudo=<?= $comments['id'] ?>&conteudo=<?= $comments['comentario'] ?>&id_usuario_denunciado=<?= $comments['id_usuario'] ?>&tipo=0')">Denunciar</a>
+                            </div>
+                        <?php } ?>
+
+                        <div class="con-resp-comments" id="resp-<?= $comments['id'] ?>">
+                            <div class="single-input-whiteF">
+                                <input name="comment" id="respInput-<?= $comments['id'] ?>" required class="input">
+                                <label class="p-medium" for="comment">Responder...</label>
+                            </div>
+                            <div class="con-btn-comments">
+                                <div class="btn-options-comments">
+                                    <input type="checkbox" name="checkSpoiler" value="1"  class="spoiler" id="spoilerR-<?= $comments['id'] ?>">
+                                    <label for="spoilerR-<?= $comments['id'] ?>"><i class="fa-solid fa-eye-slash spoilerI"></i></label>
+                                </div>
+                                <div class="btn-comments">
+                                    <a class="btn-white-small" onclick="showHide('<?= $comments['id'] ?>')">Cancelar</a>
+                                    <a type="submit" class="btn-white-small" onclick="responder('/responder?id_manga=<?= $this->view->mangaI['id'] ?>&n_cap=<?= $this->view->capI['n_cap'] ?>&id_usuario=<?= $_SESSION['id'] ?>&id_usuario_respondido=<?= $comments['id_usuario'] ?>&id_comentario_respondido=<?= $comments['id'] ?>', '<?= $this->view->mangaI['id'] ?>', '<?= $this->view->capI['n_cap'] ?>', '<?= $comments['id'] ?>')">Adicionar</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Comentários -> Respostas -->
+
+                        <?php foreach($this->view->respostas as $indice_arr => $resp) { ?>
+                            <?php if($resp['id_comentario_respondido'] == $comments['id']) { ?>
+                                <div class="con-resp-user">
+                                    <div class="img-comments">
+                                        <img src="<?= $resp['icone'] ?>" alt="">
+                                    </div>
+                                    <div class="info-comments">
+                                        <p class="p-medium"><?= $resp['nome'] ?>
+                                        <?php if($resp['titulo'] != null) { ?>
+                                            <em class="p-small"> - <?= $resp['titulo'] ?></em>
+                                        <?php } ?>
+                                        
+                                        <?php if($resp['spoiler'] == 0) { ?>
+                                            <p class="p-small"><?= $resp['resposta'] ?></p>
+                                        <?php } else { ?>
+                                            <p class="p-small spoilerText"><?= $resp['resposta'] ?></p>
+                                        <?php } ?>
+
+                                        <?php if($resp['id_usuario'] == $_SESSION['id']) { ?>
+                                            <div class="options-comments">
+                                                <a class="p-small disabled">Responder</a>
+                                                <a class="p-small disabled">Denunciar</a>
+                                            </div>
+                                        <?php } else { ?>
+                                            <div class="options-comments">
+                                                <a class="p-small" onclick="showHide('<?= $resp['id'] ?>')">Responder</a>
+                                                <a class="p-small" onclick="denunciarComments('/denunciar?id_conteudo=<?= $resp['id'] ?>&conteudo=<?= $resp['resposta'] ?>&id_usuario_denunciado=<?= $resp['id_usuario'] ?>&tipo=1')">Denunciar</a>
+                                            </div>
+                                        <?php } ?>
+
+                                        <div class="con-resp-comments" id="resp-<?= $resp['id'] ?>">
+                                            <div class="single-input-whiteF">
+                                                <input name="comment" id="respInput-<?= $resp['id'] ?>" required class="input">
+                                                <label class="p-medium" for="comment">Responder...</label>
+                                            </div>
+                                            <div class="con-btn-comments">
+                                                <div class="btn-options-comments">
+                                                    <input type="checkbox" name="checkSpoiler" value="1"  class="spoiler" id="spoilerR-<?= $resp['id'] ?>">
+                                                    <label for="spoilerR-<?= $resp['id'] ?>"><i class="fa-solid fa-eye-slash spoilerI"></i></label>
+                                                </div>
+                                                <div class="btn-comments">
+                                                    <a class="btn-white-small" onclick="showHide('<?= $resp['id'] ?>')">Cancelar</a>
+                                                    <a type="submit" class="btn-white-small" onclick="responder('/responder?id_manga=<?= $this->view->mangaI['id'] ?>&n_cap=<?= $this->view->capI['n_cap'] ?>&id_usuario=<?= $_SESSION['id'] ?>&id_usuario_respondido=<?= $resp['id_usuario'] ?>&id_comentario_respondido=<?= $comments['id'] ?>', '<?= $this->view->mangaI['id'] ?>', '<?= $this->view->capI['n_cap'] ?>', '<?= $resp['id'] ?>')">Adicionar</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                            <?php } ?> 
+                        <?php } ?>
+
+                    </div> 
+                </div>
+            
+            
+                <?php } ?>

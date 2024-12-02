@@ -1,0 +1,18 @@
+<div class="header-admin-g">
+    <h3>Deletar Categoria</h3>
+</div>
+<div class="body-admin-gg">
+<form action="/removerCategoria" enctype="multipart/form-data" method="post" class="form-gerenciar">
+                    <div class="single-select-black" id="con-control">
+                        <select name="id_categoria" class="input" required>
+                            <option value="" selected>---</option>
+                            <?php foreach($this->view->categorias as $indice_arr => $categoria) { ?>
+                                <option value="<?= $categoria['id'] ?>"><?= $categoria['nome'] ?> </option>
+                            <?php } ?>
+                        </select>
+                        <i class="fa-solid fa-caret-down"></i>
+                        <label class="p-medium" for="id_categoria">Categoria</label>
+                    </div>
+                    <button type="submit" class="btn-green-small-BW">Deletar Categoria</button>
+                    </form>
+</div>

@@ -1,0 +1,10 @@
+<div class="header-admin-g">
+    <h3>Deletar Background</h3>
+</div>
+<div class="body-admin-back">
+    <?php foreach($this->view->back as $indice_arr => $bg) { ?>
+        <div class="con-admin-back">
+            <a href="/removerBack?id_bg=<?= $bg['id'] ?>"><img src="<?= $bg['path'] ?>" alt=""></a>
+        </div>
+    <?php } ?>
+</div>

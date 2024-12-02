@@ -1,0 +1,17 @@
+<h5>Editar Logo</h5>
+<form action="/acaoAdmin?acaoAdmin=updateLogo" enctype="multipart/form-data" method="post" id="formEditManga">
+    <div class="single-select-black" id="con-control">
+        <select name="idLogo" class="input" required>
+            <option value="" selected>---</option>
+            <?php foreach($this->view->scans as $indice_arr => $scan) { ?>
+                <option value="<?= $scan['id'] ?>"><?= $scan['nome'] ?></option>
+            <?php } ?>
+            </select>
+            <i class="fa-solid fa-caret-down"></i>
+            <label class="p-medium" for="idLogo">Nome</label>
+    </div>
+        <label onclick="ImgPreview()" for="arquivoImg" class="btn-green-small">Selecionar logo</label>
+        <input type="file" name="arquivo" id="arquivoImg" class="input-small" required>
+        <img class="icone-preview-path" id="img-Path" alt="">
+        <button type="submit" class="btn-green-small-BW">Editar Imagem</button>
+</form>

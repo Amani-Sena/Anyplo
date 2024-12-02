@@ -1,0 +1,107 @@
+<div class="header-admin-g">
+    <h3>Adicionar Mangá</h3>
+</div>
+<form action="/addManga" enctype="multipart/form-data" method="post" class="form-gerenciar">
+<div class="body-admin-g">
+
+    <div class="con-left-admin"> 
+        
+            <label onclick="ImgPreview()" for="arquivoImg" class="btn-green-small">Selecionar Imagem</label>
+            <input type="file" name="arquivo" id="arquivoImg" class="input-small" required>
+            <img class="img-preview-path" id="img-Path" alt="">
+                            
+            <label onclick="BgPreview()" for="arquivoBg" class="btn-green-small">Selecionar Background</label>
+            <input type="file" name="back" id="arquivoBg" class="input-small" required>
+            <img class="img-preview-bg" id="img-BG" alt="">
+    </div>
+
+    <div class="con-right-admin">
+        <div class="single-input-black">
+            <input name="nome" id="nome" required class="input" >
+            <label class="p-medium" for="nome">Nome</label>
+        </div>
+
+        <div class="single-select-black" id="con-control">
+            <select name="tipo" class="input" required>
+                <option value="" selected>---</option>
+                <option value="Light Novel">Light Novel</option>
+                <option value="Mangá">Mangá</option>
+                <option value="Light Novel">Manhwa</option>
+                <option value="Mangá">Manhua</option>
+            </select>
+            <i class="fa-solid fa-caret-down"></i>
+            <label class="p-medium" for="tipo">Tipo</label>
+        </div>
+                        
+        <div class="single-select-black" id="con-control">
+            <select name="genero1" class="input" required>
+                <option value="" selected>---</option>
+                <?php foreach($this->view->generos as $indice_arr => $manga) { ?>
+                    <option value="<?= $manga['nome'] ?>"><?= $manga['nome'] ?></option>
+                <?php } ?>
+            </select>
+            <i class="fa-solid fa-caret-down"></i>
+            <label class="p-medium" for="genero1">Gênero Primário</label>
+        </div>
+
+        <div class="single-select-black" id="con-control">
+            <select name="genero2" class="input" required>
+                <option value="" selected>---</option>
+                <?php foreach($this->view->generos as $indice_arr => $manga) { ?>
+                    <option value="<?= $manga['nome'] ?>"><?= $manga['nome'] ?></option>
+                <?php } ?>
+            </select>
+            <i class="fa-solid fa-caret-down"></i>
+            <label class="p-medium" for="genero2">Gênero Secundário</label>
+        </div>
+
+        <div class="single-select-black" id="con-control">
+            <select name="genero3" class="input" required>
+                <option value="" selected>---</option>
+                <?php foreach($this->view->generos as $indice_arr => $manga) { ?>
+                    <option value="<?= $manga['nome'] ?>"><?= $manga['nome'] ?></option>
+                <?php } ?>
+            </select>
+            <i class="fa-solid fa-caret-down"></i>
+            <label class="p-medium" for="genero3">Gênero Terciário</label>
+        </div>
+
+        <div class="single-select-black" id="con-control">
+            <select name="status" class="input" required>
+                <option value="" selected>---</option>
+                <?php foreach($this->view->status as $indice_arr => $manga) { ?>
+                    <?php if($manga['nome'] == "Recém Atualizados" || $manga['nome'] == "Melhores Avaliados") { ?>
+                        <option disabled value="<?= $manga['nome'] ?>"><?= $manga['nome'] ?></option>
+                    <?php } else { ?>
+                        <option value="<?= $manga['nome'] ?>"><?= $manga['nome'] ?></option>
+                    <?php } ?>
+                <?php } ?>
+            </select>
+            <i class="fa-solid fa-caret-down"></i>
+            <label class="p-medium" for="status">Status</label>
+        </div>
+
+        <div class="single-select-black" id="con-control">
+            <select name="class" class="input" required>
+                <option value="" selected>---</option>
+                <option value="0">Livre</option>
+                <option value="1">+18</option>
+            </select>
+            <i class="fa-solid fa-caret-down"></i>
+            <label class="p-medium" for="class">Classificação Indicativa</label>
+        </div>
+
+        <div class="single-input-black">
+            <input name="ano_lanc" id="ano_lanc" required maxlength="4" class="input">
+            <label class="p-medium" for="ano_lanc">Ano de lançamento</label>
+        </div>
+        <div class="single-input-black">
+            <input name="sinopse" id="sinopse" required class="input">
+            <label class="p-medium" for="sinopse">Sinopse</label>
+        </div>
+        <button type="submit" class="btn-green-small-BW">Enviar Manga</button>
+
+</div>
+
+</div>
+</form>

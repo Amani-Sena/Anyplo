@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <!-- Title -->
+    <title><?=  $this->view->mangaI['nome'] ?> - Anyplo</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"/>
+</head>
+
+<body>
+    <?php require_once ("../App/views/partials/header.phtml") ?><!--Cabeçalho -->
+
+    <div class="top-chapter">
+        <div class="btn-v">
+            <?php if($this->view->lei['leitura'] == 'V' || $this->view->lei['leitura'] == null) { ?>
+                <a class="btn-green-small btn-lei" onclick="MudarLei('H')">Leitura Horizontal</a>
+            <?php } ?>
+            <?php if($this->view->lei['leitura'] == 'H') { ?>
+                <a class="btn-green-small btn-lei" onclick="MudarLei('V')">Leitura Vertical</a>
+            <?php } ?>
+        </div>
+
+        <div class="manga-info" id="manga-info">
+            <div class="btn-add" id="btn-add">
+                <a href="/manga?id_manga=<?= $this->view->mangaI['id'] ?>"><i class="fa-solid fa-house"></i></a>
+                <a href="/baixar?n_cap=<?= $this->view->capI['n_cap'] ?>&id_manga=<?=  $this->view->capI['id_manga'] ?>"><i class="fa-solid fa-download"></i></a>
+                <?php if($this->view->listando['listando_sn'] == 0) { ?>
+                    <?php if(isset($_SESSION['id'])) { ?>
+                        <a onclick="addRow('/acao?acao=adicionar&id_manga=<?= $this->view->mangaI['id'] ?>', '/requestPartial?partial=addRowC&id_manga=<?= $this->view->mangaI['id'] ?>', 'btn-add')"><i class="fa-solid fa-bookmark"></i></a>
+                    <?php } else { ?>
+                        <a href="/login"><i class="fa-solid fa-bookmark"></i></a>
+                    <?php } ?>
+                <?php } ?>
+
+                <?php if($this->view->listando['listando_sn'] == 1) { ?>
+                    <a onclick="addRow('/acao?acao=remover&id_manga=<?= $this->view->mangaI['id'] ?>', '/requestPartial?partial=addRowC&id_manga=<?= $this->view->mangaI['id'] ?>', 'btn-add')"><i class="fa-solid fa-xmark"></i></a>
+                <?php } ?>
+            </div>
+
+            <div class="img-manga-chapter"><img src="<?=  $this->view->mangaI['path'] ?>" alt=""></div>
+            <div class="manga-name-chapter"><h5 style="color: var(--whiteF)"><?= $this->view->mangaI['nome'] ?></h5></div>
+
+        </div>
+        <div class="con-chapters-info">        
+            <div class="chapters-info">
+                <div class="chapters-right">
+                    <?php if($this->view->capTotal[0]['n_cap'] >= $this->view->capI['n_cap']) { ?>
+                        <a class="a-disabled"><i class="caret-prev caret-disabled"></i></a>
+                    <?php } else { ?>
+                        <a href="/prev_page?n_cap=<?= $this->view->capI['n_cap'] ?>&id_manga=<?= $this->view->mangaI['id']?>"><i class="caret-prev"></i></a>
+                    <?php } ?>
+
+                        <a class="c-whiteF a-big" onclick="dropC()">Cap. <?= $this->view->capI['n_cap'] ?></a>
+ 
+                    <?php if($this->view->capI['n_cap'] == $this->view->capF['n_cap']) { ?>
+                        <a class="a-disabled"><i class="caret-next caret-disabled"></i></a>
+                    <?php } else { ?>
+                        <a href="/next_page?n_cap=<?= $this->view->capI['n_cap'] ?>&id_manga=<?= $this->view->mangaI['id']?>"><i class="caret-next"></i></a>
+                    <?php } ?>
+                </div>
+                
+                <div class="chapters-info-fansub"><br>
+                    <p>Por: <?= $this->view->capI['nome'] ?></p>
+                </div>
+                    
+            </div>
+            <div class="con-chapters" id="con-chaptersT">
+                <?php foreach($this->view->capTotal as $indice_arr => $capTotal) { ?>
+                    <a href="/paginas?id_manga=<?= $this->view->mangaI['id'] ?>&n_cap=<?= $capTotal['n_cap'] ?>">Cap. <?= $capTotal['n_cap'] ?></a>
+                <?php } ?>
+            </div>
+        </div> 
+
+    </div>
+
+    <!-- Leitura Vertical -->
+    <?php if($this->view->lei['leitura'] == 'V' || $this->view->lei['leitura'] == null) { ?>
+    <div class="con-leiV">
+            <?php foreach($this->view->pagesI as $indice_arr => $pages) { ?>
+                <div class="pags-slide"><img src="<?= $pages['paths'] ?>"></div>
+            <?php } ?>
+
+            <div class="con-chapters-info">
+                
+                <div class="chapters-info-down">
+                    <?php if($this->view->capI['n_cap'] <= 1) { ?>
+                        <a class="a-disabled"><i class="caret-prev caret-disabled prevD"></i></a>
+                    <?php } else { ?>
+                        <a href="/paginas?n_cap=<?= $this->view->capI['n_cap'] - 1 ?>&id_manga=<?= $this->view->mangaI['id']?>"><i class="caret-prev prevD"></i></a>
+                    <?php } ?>
+
+                    <?php if($this->view->capI['n_cap'] == count($this->view->capTotal)) { ?>
+                        <a class="a-disabled"><i class="caret-next caret-disabled nextD"></i></a>
+                    <?php } else { ?>
+                        <a href="/paginas?n_cap=<?= $this->view->capI['n_cap'] + 1 ?>&id_manga=<?= $this->view->mangaI['id']?>"><i class="caret-next nextD"></i></a>
+                    <?php } ?>
+                </div>
+            </div>
+    </div>
+
+    <!-- Leitura Horizontal -->
+    <div class="con-leiH hide-leitura">
+        <div class="swiper mySwiper swiper-pag">
+            <div class="swiper-wrapper" id="swiper-w">
+                <?php foreach($this->view->pagesI as $indice_arr => $pages) { ?>
+                    <div class="swiper-slide slide"><img src="<?= $pages['paths'] ?>"></div>
+                <?php } ?>
+            </div>
+        </div>
+            <div class="swiper-navigation navigation">
+                <div class="swiper-pagination pagination"></div>
+                <div class="swiper-controls controls">
+                    <div class="prev-chapter"></div>
+                    <div class="next-chapter"></div>
+                </div>
+            </div>
+    </div>
+    <?php } ?>
+
+
+    <!-- Leitura Vertical 2-->
+    <?php if($this->view->lei['leitura'] == 'H') { ?>
+
+        <div class="con-leiV hide-leitura">
+            <?php foreach($this->view->pagesI as $indice_arr => $pages) { ?>
+                <div class="pags-slide"><img src="<?= $pages['paths'] ?>"></div>
+            <?php } ?>
+
+            <div class="con-chapters-info">
+                
+                <div class="chapters-info-down">
+                    <?php if($this->view->capI['n_cap'] <= 1) { ?>
+                        <a class="a-disabled"><i class="caret-prev caret-disabled prevD"></i></a>
+                    <?php } else { ?>
+                        <a href="/paginas?n_cap=<?= $this->view->capI['n_cap'] - 1 ?>&id_manga=<?= $this->view->mangaI['id']?>"><i class="caret-prev prevD"></i></a>
+                    <?php } ?>
+
+                    <?php if($this->view->capI['n_cap'] == count($this->view->capTotal)) { ?>
+                        <a class="a-disabled"><i class="caret-next caret-disabled nextD"></i></a>
+                    <?php } else { ?>
+                        <a href="/paginas?n_cap=<?= $this->view->capI['n_cap'] + 1 ?>&id_manga=<?= $this->view->mangaI['id']?>"><i class="caret-next nextD"></i></a>
+                    <?php } ?>
+                </div>
+            </div>
+    </div>
+
+    <!-- Leitura Horizontal 2-->
+    <div class="con-leiH">
+        <div class="swiper mySwiper swiper-pag">
+            <div class="swiper-wrapper" id="swiper-w">
+                <?php foreach($this->view->pagesI as $indice_arr => $pages) { ?>
+                    <div class="swiper-slide slide"><img src="<?= $pages['paths'] ?>"></div>
+                <?php } ?>
+            </div>
+        </div>
+            <div class="swiper-navigation navigation">
+                <div class="swiper-pagination pagination"></div>
+                <div class="swiper-controls controls">
+                    <div class="prev-chapter"></div>
+                    <div class="next-chapter"></div>
+                </div>
+            </div>
+    </div>
+    <?php } ?>
+
+        <!--<div class=con-report-btn>
+            <a onclick="report('/addReport', '<?= $this->view->capI['id_manga'] ?>' , '<?= $this->view->capI['n_cap'] ?>')"><i class="fa-solid fa-exclamation"></i></a>
+        </div>  -->
+    
+
+        <!-- Efeito Fundo -->
+        <div class="color-back""></div>
+        <div class="con-img-back">
+            <img src="<?=  $this->view->mangaI['path'] ?>" alt=""> <!-- Imagem Fundo -->
+        </div>
+    
+    
+    
+    <?php require_once ("../App/views/partials/footer.phtml") ?><!-- Footer/Rodapé -->
+    </main>
+    <!-- Swiper JS -->
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    
+    <script src="js/paginas.js"></script>
+</body>
+</html>

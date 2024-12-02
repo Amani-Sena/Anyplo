@@ -1,0 +1,26 @@
+<div class="header-admin-g">
+    <h3>Adicionar Categoria</h3>
+</div>
+<div class="body-admin-gg">
+    <form action="/addCategoria" enctype="multipart/form-data" method="post" class="form-gerenciar">
+                        <div class="single-input-black">
+                            <input type="text" name="nome" id="nome" required class="input" >
+                            <label class="p-medium" for="nome">Nome da Categoria</label>
+                        </div>
+                       
+                        <div class="single-select-black" id="con-control">
+                            <select name="tipo" class="input" required>
+                                <option value="" selected>---</option>
+                                <option value="1">Status</option>
+                                <option value="2">Gênero</option>
+                            </select>
+                            <i class="fa-solid fa-caret-down"></i>
+                            <label class="p-medium" for="id_icone">Tipo de Categoria</label>
+                        </div>
+                        <div class="single-input-black">
+                            <input type="text" name="descricao" id="descricao" required class="input" >
+                            <label class="p-medium" for="descricao">Descrição</label>
+                        </div>
+                        <button type="submit" class="btn-green-small-BW">Enviar Categoria</button>
+                    </form>
+</div>

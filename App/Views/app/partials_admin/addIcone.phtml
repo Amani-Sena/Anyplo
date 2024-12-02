@@ -1,0 +1,15 @@
+<div class="header-admin-g">
+    <h3>Adicionar Icone</h3>
+</div>
+<div class="body-admin-gg">
+<form action="/addIcone" enctype="multipart/form-data" method="post" class="form-gerenciar">
+                        <div class="single-input-black">
+                            <input type="text" name="nome" id="nome" required class="input" >
+                            <label class="p-medium" for="nome">Nome do Icone</label>
+                        </div>
+                        <label onclick="ImgPreview()" for="arquivoImg" class="btn-green-small-BW">Selecionar Icone</label>
+                        <input type="file" name="arquivo" id="arquivoImg" class="input-small" required>
+                        <img class="icone-preview-path" id="img-Path" alt="">
+                        <button type="submit" class="btn-green-small-BW">Enviar Ícone</button>
+                    </form>
+</div>

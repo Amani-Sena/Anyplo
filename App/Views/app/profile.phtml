@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <!-- Title -->
+    <title>Perfil - Anyplo</title>
+</head>
+
+<body>
+    <?php require_once ("../App/Views/partials/header.phtml") ?><!--Cabeçalho -->
+
+        <div class="img-ban-profile" id="img-ban-profile">
+            <img src="<?= $this->view->user_info['bg'] ?>" onclick="abrirModal('janela-modal-bg')">
+        </div>
+        
+        <div class="con-cont">
+            <div class="con-img-profile">
+                <div class="con-img-profile-cont" id="con-img-profile">
+                    <img src="<?= $this->view->user_info['icone'] ?>" onclick="abrirModal('janela-modal-icones')">
+                </div>
+                <div class="name-profile" id="name-profile">    
+                    <h4><?= $_SESSION['nome'] ?> <em class="p-small"> Nível <?= floor($this->view->user_info['nivel']) ?></em></h4>
+                    <p class="p-small c-black"><?= $this->view->user_info['titulo'] ?></p>
+                </div>
+                <div class="con-dropdown" id="dropdown_profile">
+                    <div class="con-btn-dropdown">
+                        <a class="a-medium btn-green-square click-edit f-right">
+                            <i class="fa-solid fa-gear"></i>
+                            <em>Configurações</em>
+                        </a>
+                    </div>
+                    <div class="list-dropdown">
+                        <ul class="list-drop">
+                            <li class="links-dropdown"><a onclick="requestPartial('/requestPartial?partial=preferences', 'con-control')">Preferências</a></li>
+                            <li class="links-dropdown"><a onclick="requestPartial('/requestPartial?partial=altEmail', 'con-control')">Alterar E-mail</a></li>
+                            <?php if($this->view->user_info['senha'] != null) { ?>
+                                <li class="links-dropdown"><a onclick="requestPartial('/requestPartial?partial=altSenha', 'con-control')">Alterar Senha</a></li>
+                            <?php } ?>
+                            <li class="links-dropdown"><a href="/sair">Sair</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="con-settings-profile">
+                <div class="settings-menu">
+                    <h4>Geral</h4>
+                    <br>
+                    <a onclick="requestPartial('/requestPartial?partial=preferences', 'con-control')">Preferências</a>
+                    <a onclick="requestPartial('/requestPartial?partial=altEmail', 'con-control')">Alterar E-mail</a>
+                    <?php if($this->view->user_info['senha'] != null) { ?>
+                        <a onclick="requestPartial('/requestPartial?partial=altSenha', 'con-control')">Alterar Senha</a>
+                    <?php } ?>
+                    <a href="/sair" class="btn-red-square">Sair</a>
+                </div>
+
+                <div class="settings-control" id="con-control">
+                <div class="con-settings">
+                    <div class="con-form-settings">
+                        <h4>Preferências</h4>
+                        <p>Ajustar preferências de leitura, títulos e classificação indicativa!</p>
+
+                            <div class="single-select">
+                                <select name="titulo" id="titulo" class="input" onchange="mudarTitle()">
+                                    <option value="null">Nenhum</option>
+                                <?php foreach($this->view->title as $indice_arr => $title) { ?>
+                                    <?php if($title['nivel'] <= $this->view->user_info['nivel']) { ?>
+                                        <?php if($this->view->user_info['titulo'] == $title['nome']) { ?>
+                                            <option value="<?= $title['nome'] ?>" selected><?= $title['nome'] ?></option>
+                                        <?php } else{ ?>
+                                            <option value="<?= $title['nome'] ?>"><?= $title['nome'] ?></option>
+                                        <?php } ?>
+                                    <?php } ?>
+
+                                    <?php if($title['nivel'] > $this->view->user_info['nivel']) { ?>
+                                        <option value="<?= $title['nome'] ?>" disabled><?= $title['nome'] ?></option>
+                                    <?php } ?>
+                                <?php } ?>
+                                </select>
+                                <i class="fa-solid fa-caret-down"></i>
+                                <label class="p-medium" for="titulo">Título</label>
+                            </div>
+
+                            <div class="single-select">
+                                <select name="ori" id="leitura" class="input" onchange="mudarLei()">
+                                <?php if($this->view->user_info['leitura'] == 'H') { ?>
+                                    <option value="H" selected>Horizontal</option>
+                                    <option value="V">Vertical</option>
+                                <?php } ?>
+                                    
+                                <?php if($this->view->user_info['leitura'] == 'V') { ?>
+                                    <option value="V" selected>Vertical</option>
+                                    <option value="H">Horizontal</option>
+                                <?php } ?>
+
+                                <?php if($this->view->user_info['leitura'] == null) { ?>
+                                    <option value="V">Vertical</option>
+                                    <option value="H">Horizontal</option>
+                                <?php } ?>
+                                </select>
+                                <i class="fa-solid fa-caret-down"></i>
+                                <label class="p-medium" for="ori">Leitura</label>
+                            </div>
+
+                            <div class="con-switch">
+                                <label for="switch-input" class="switch">
+                                    <div class="switch-wrapper">
+                                        <?php if($this->view->user_info['class'] == 1) { ?>
+                                            <input type="checkbox" id="switch-input" checked  onclick="mudarClass()">
+                                        <?php } else if($this->view->user_info['class'] == 0) { ?>
+                                            <input type="checkbox" id="switch-input"  onclick="mudarClass()">
+                                        <?php } ?>
+                                        <span class="switch-btn"></span>
+                                    </div>
+                                    <span class="switch-text p-medium">Conteúdo Adulto +18</span> 
+                                </label>
+                            </div>
+
+                        
+                    </div>
+                </div>
+                          
+                </div>
+            </div>
+            
+
+        </div>
+
+
+        <?php require_once ("../App/views/partials/footer.phtml") ?><!-- Footer/Rodapé -->
+        </main>
+        <!-- Modal Icone -->
+        <div class="janela-modal" id="janela-modal-icones">
+            <div class="modal" id="modal-icones">
+                <div class="con-close" id="con_close-icones">
+                    <a class="fechar"><i class="fa-solid fa-x" id="fechar"></i></a>
+                </div>
+                <h4>Selecionar Icone</h4>
+                <p>Escolha seu ícone, você pode mudar sempre que quiser!</p>
+                <div id="container-icones">
+                    <?php foreach($this->view->icones as $indice_arr => $icone) { ?>
+                        <a onclick="updateIcone('/updateIcone?icone=<?= $icone['path'] ?>')"><img src="<?= $icone['path'] ?>"></a>
+                    <?php } ?>  
+                </div> 
+            </div>
+        </div>
+
+
+        <!-- Modal BG -->
+        <div class="janela-modal" id="janela-modal-bg">
+            <div class="modal">
+                <div class="con-close" id="con_close-icones">
+                    <a class="fechar"><i class="fa-solid fa-x" id="fechar"></i></a>
+                </div>
+                <h4>Selecionar a imagem de cabeçalho</h4>
+                <p>Escolha a imagem de cabeçalho do seu perfil!</p>
+                <div id="container-bg">
+                    <?php foreach($this->view->back as $indice_arr => $bg) { ?>
+                        <a onclick="updateBack('/updateBack?back=<?= $bg['path'] ?>')"><img src="<?= $bg['path'] ?>"></a>
+                    <?php } ?>  
+                </div> 
+            </div>
+        </div>
+
+        <script src="js/profile.js"></script>
+        
+</body>
+
+
+
+</html>

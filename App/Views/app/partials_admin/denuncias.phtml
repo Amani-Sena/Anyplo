@@ -1,0 +1,26 @@
+<div class="header-admin-g">
+                <h3>Gerenciar Denuncias</h3>
+            </div>
+
+            <div class="body-admin-gg">
+                <div class="con-drawer">
+                        <?php foreach($this->view->denuncias as $indice_arr => $denuncia) { ?>
+                            <div class="con-modal-drawer">
+                                <div class="header-modar-drawer">
+                                    <p class="c-black">Nº: <?= $denuncia['id_d'] ?> | Manga: Spy x Family</p>
+                                    <p class="c-black">Nome: <?= $denuncia['nome'] ?></p>
+                                </div>
+
+                                <div class="modal-drawer-info">
+                                    <div class="cont-modal-drawer">
+                                        <p class="c-black"><?= $denuncia['conteudo'] ?></p>
+                                    </div>
+                                    <div class="btn-modal-drawer">
+                                        <a href="/deleteComment?id_comentario=<?= $denuncia['id_conteudo'] ?>&tipo=<?= $denuncia['tipo'] ?>"><i class="fa-solid fa-trash"></i></a>
+                                        <a href="/ignore?id_comentario=<?= $denuncia['id_conteudo'] ?>&tipo=<?= $denuncia['tipo'] ?>"><i  class="fa-regular fa-circle-xmark"></i></a>
+                                    </div>
+                                </div> 
+                            </div>
+                        <?php } ?>
+                    </div>
+            </div>

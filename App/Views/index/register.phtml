@@ -1,0 +1,79 @@
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+
+    <!-- Title -->
+    <title>Registrar</title>
+
+    <style>
+        body {
+            background-image: url('../../img/<?= $this->view->bg ?>');
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+    </style>
+
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
+</head>
+
+<body>
+   
+<?php require_once ("../App/views/partials/headerAlt.phtml") ?><!--Cabeçalho -->
+
+    <div class="content">
+        <div class="first-column">
+            <div class="con-form">
+                <h4>Registre-se</h4>
+                <p>Venha para a Anyplo, falta pouco!</p>
+
+                <?php if($this->view->msgErrorEmail) { ?>
+                    <p class="c-red">Email já cadastrado ou inválido!</p>
+                <?php } ?>
+
+                <?php if($this->view->msgErrorName) { ?>
+                    <p class="c-red">Nome de usuário já cadastrado!</p>
+                <?php } ?>
+
+                <form action="/registrar" method="post" class="form-up">
+                    <div class="single-input-black">
+                        <input type="text" name="nome" id="nome" value="<?= $this->view->usuario['nome'] ?>" required class="input">
+                        <label class="p-medium" for="nome">Nome de usuário</label>
+                    </div>
+
+                    <div class="single-input-black">
+                        <input type="text" name="email" id="email" value="<?= $this->view->usuario['email'] ?>" required class="input">
+                        <label class="p-medium" for="email">E-mail</label>
+                    </div>
+
+                    <div class="single-input-black">
+                        <input type="password" name="senha" id="senha" value="<?= $this->view->usuario['senha'] ?>" required class="input">
+                        <label class="p-medium" for="senha">Senha</label>
+                    </div>
+                    <button class="btn-green-BW" type="submit">Criar Conta</button>
+                    <p>Já tem uma conta? <a href="/login" class="c-green"> Iniciar Sessão</a></p>
+                    <p>Ou</p>
+
+                    <div id="g_id_onload"
+                        data-client_id="1096694795774-8rnonr531bi05i337emsstfvqjpmd6e3.apps.googleusercontent.com"
+                        data-login_uri="/login_google"
+                        data-auto_prompt="false">
+                    </div>
+                    <div class="g_id_signin"
+                        data-type="standard"
+                        data-size="large"
+                        data-shape="pill"
+                        data-theme="outline"
+                        data-text="sign_in_with"
+                        data-shape="rectangular"
+                        data-logo_alignment="left">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <?php require_once ("../App/views/partials/footer.phtml") ?><!-- Footer/Rodapé -->
+</main>
+    
+</body>
+</html>

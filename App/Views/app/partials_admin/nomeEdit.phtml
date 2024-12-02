@@ -1,0 +1,18 @@
+<form action="/acaoAdmin?acaoAdmin=updateNome" method="post" class="form-gerenciar">
+    <div class="single-select-black" id="con-control">
+            <select name="id_manga" class="input" required>
+                <option value="" selected>---</option>
+                <?php foreach($this->view->mangas as $indice_arr => $manga) { ?>
+                    <option value="<?= $manga['id'] ?>"><?= $manga['nome'] ?> | <?= $manga['tipo'] ?></option>
+                <?php } ?>
+            </select>
+            <i class="fa-solid fa-caret-down"></i>
+            <label class="p-medium" for="id_manga">Nome</label>
+        </div>
+                    
+        <div class="single-input-black">
+            <input name="nomeN" id="nomeN" required class="input" >
+            <label class="p-medium" for="nomeN">Nome Editado</label>
+        </div>
+        <button type="submit" class="btn-green-small-BW">Editar Nome</button>
+</form>

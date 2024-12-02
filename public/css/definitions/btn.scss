@@ -1,0 +1,189 @@
+//Pequeno ---------------------------------------------------------------------------------------
+.btn-white-small {
+    color: var(--whiteF);
+    border-radius: 2rem;
+    transition: 0.3s ease-in;
+    padding: 0.5rem 0.6rem;
+    margin-left: 0.2rem;
+    margin-right: 0.2rem;
+    font-size: 1rem;
+    background-color: transparent;
+    border: 1px solid var(--whiteF);
+}
+
+.btn-white-small:hover {
+    background-color: var(--whiteF);
+    color: var(--blackF);
+}
+
+.btn-white-small-BW {
+    color: var(--green);
+    border-radius: 2rem;
+    transition: 0.3s ease-in;
+    padding: 0.5rem 0.6rem;
+    margin-left:0.2rem;
+    margin-right: 0.2rem;
+    font-size: 1rem;
+    background-color: transparent;
+    border: 1px solid var(--green);
+}
+
+.btn-white-small-BW:hover {
+    background-color: var(--green);
+    color: var(--whiteF);
+}
+
+.btn-green-small {
+    color: var(--whiteF);
+    background-color: var(--green);
+    border-radius: 2rem;
+    transition: 0.3s ease-in;
+    padding: 0.5rem 0.6rem;
+    margin-left:0.2rem;
+    margin-right: 0.2rem;
+    font-size: 1rem;
+}
+
+.btn-green-small:hover {
+    color: var(--blackF);
+    background-color: var(--whiteF);
+}
+
+.btn-green-small-BW {
+    color: var(--whiteF);
+    background-color: var(--green);
+    border-radius: 2rem;
+    transition: 0.3s ease-in;
+    padding: 0.5rem 0.6rem;
+    margin-left: 0.2rem;
+    margin-right: 0.2rem;
+    font-size: 1rem;
+    border: 1px solid var(--green);
+}
+
+.btn-green-small-BW:hover {
+    background-color: transparent;
+    color: var(--green);
+    cursor: pointer;
+}
+
+//Normal ---------------------------------------------------------------------------------------
+.btn-white {
+    color: var(--whiteF);
+    border-radius: 2rem;
+    transition: 0.3s ease-in;
+    padding: 0.6rem 1.3rem;
+    margin-right: 0.4rem;
+    margin-left: 0.4rem;
+    font-size: 1rem;
+    background-color: transparent;
+    border: 1px solid var(--whiteF);
+}
+
+.btn-white:hover {
+    background-color: var(--whiteF);
+    color: var(--blackF);
+}
+
+.btn-white-BW {
+    color: var(--green);
+    border-radius: 2rem;
+    transition: 0.3s ease-in;
+    padding: 0.6rem 1.3rem;
+    margin-right: 0.4rem;
+    margin-left: 0.4rem;
+    font-size: 1rem;
+    background-color: transparent;
+    border: 1px solid var(--green);
+}
+
+.btn-white-BW:hover {
+    background-color: var(--green);
+    color: var(--whiteF);
+}
+
+.btn-green {
+    color: var(--whiteF);
+    background-color: var(--green);
+    border-radius: 2rem;
+    transition: 0.3s ease-in;
+    padding: 0.6rem 1.3rem;
+    margin-right: 0.4rem;
+    margin-left: 0.4rem;
+    font-size: 1rem;
+    border: none;
+}
+
+.btn-green:hover {
+    color: var(--blackF);
+    background-color: var(--whiteF);
+}
+
+.btn-green-BW {
+    color: var(--whiteF);
+    background-color: var(--green);
+    border-radius: 2rem;
+    transition: 0.3s ease-in;
+    padding: 0.6rem 1.3rem;
+    margin-right: 0.4rem;
+    margin-left: 0.4rem;
+    font-size: 1rem;
+    border: none;
+}
+
+.btn-green-BW:hover {
+    background-color: transparent;
+    color: var(--green);
+    border: 1px solid var(--green);
+}
+
+//Square ---------------------------------------------------------------------------------------
+.btn-white-square {
+    color: var(--whiteF);
+    padding: 0.6rem;
+    transition: 0.3s ease-in;
+}
+
+.btn-white-square-small {
+    color: var(--whiteF);
+    padding: 0.4rem;
+    transition: 0.3s ease-in;
+}
+.btn-white-square:hover,
+.btn-white-square-small:hover {
+    background-color: var(--whiteF);
+    color: var(--green);
+}
+
+.btn-green-square {
+    color: var(--green);
+    padding: 0.6rem;
+    transition: 0.3s ease-in;
+}
+
+.btn-green-square:hover {
+    background-color: var(--green);
+    color: var(--whiteF);
+}
+
+.btn-red-square {
+    color: var(--black) !important;
+}
+
+.btn-red-square:hover {
+    color: var(--whiteF) !important;
+    background-color: var(--red) !important;
+}
+
+.btn-red-square-dropdown {
+    color: var(--whiteF) !important;
+    padding-top: 0.6rem;
+    padding-bottom: 0.6rem;
+    padding-right: 6rem;
+    padding-left: 6rem;
+}
+
+.btn-red-square-dropdown:hover {
+    color: var(--whiteF) !important;
+    background-color: var(--red) !important;
+}

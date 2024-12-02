@@ -1,0 +1,18 @@
+/*#darkmodeToggle:checked + main {
+    --white: #131313;
+    --black: rgb(241, 241, 241);
+
+    --bg-white: #131313;
+    --bg-black: rgb(241, 241, 241);
+
+    --green: #267D39;
+
+    transition: .3s ease-in-out, .3s ease-in-out color;
+}*/
+#darkmodeToggle {
+  display: none;
+}
+
+.darkmodeLabel {
+  cursor: pointer;
+}/*# sourceMappingURL=dark_mode.css.map */

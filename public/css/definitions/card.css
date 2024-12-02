@@ -1,0 +1,139 @@
+.card-container {
+  width: 11rem;
+  display: flex;
+  flex-direction: column;
+  margin: 0.4rem;
+  transition: 0.3s;
+}
+
+.card-container:hover .card-name a {
+  color: var(--green);
+}
+.card-container:hover .card-img img {
+  opacity: 0.9;
+  transform: scale(1.02);
+}
+
+.content-card-Alt {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+}
+
+.con-a-cap-card {
+  position: absolute;
+  padding: 0.4rem;
+  z-index: 10;
+  background-color: var(--green);
+  color: var(--whiteF);
+  border-radius: 0 0 1rem 0;
+}
+
+.con-a-cap-card-red {
+  position: absolute;
+  padding: 0.4rem;
+  z-index: 10;
+  background-color: var(--red);
+  color: var(--whiteF);
+  border-radius: 0 0 1rem 0;
+}
+
+.a-trash-card-con {
+  position: absolute;
+  padding: 0.4rem;
+  z-index: 10;
+  background-color: var(--green);
+  color: var(--whiteF);
+  font-size: 1.4rem;
+  border-radius: 0 0 1rem 0;
+}
+
+.a-trash-card-con:hover {
+  background-color: var(--red);
+  color: var(--whiteF);
+}
+
+.content-card {
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+}
+
+.card-img {
+  overflow: hidden;
+  max-height: 20rem;
+  height: 40vh;
+  min-height: 17rem;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.card-img img {
+  display: block;
+  -o-object-fit: cover;
+     object-fit: cover;
+  width: 100%;
+  height: 100%;
+  transition: 0.3s;
+}
+
+.card-name {
+  margin-top: 0.25rem;
+  text-align: center;
+}
+
+.card-name a {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  color: var(--black);
+}
+
+/*.card-name a:hover {
+    color: var(--green);
+}*/
+.container-pagination {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  margin-top: 2rem;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+
+.active-pagination {
+  color: var(--whiteF);
+  background-color: var(--green);
+}
+
+@media (max-width: 1150px) {
+  .card-container {
+    width: 11rem;
+  }
+  .card-img {
+    height: 17rem;
+  }
+}
+@media (max-width: 660px) {
+  .card-container {
+    width: 10.6rem;
+  }
+  .card-img {
+    height: 16.6rem;
+  }
+  .content-card {
+    justify-content: center;
+  }
+}/*# sourceMappingURL=card.css.map */

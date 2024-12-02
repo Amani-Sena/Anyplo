@@ -1,0 +1,24 @@
+<h5>Editar Tipo</h5>
+<form action="/acaoAdmin?acaoAdmin=updateTipo" method="post" class="form-gerenciar">
+    <div class="single-select-black" id="con-control">
+        <select name="id_manga" class="input" required>
+            <option value="" selected>---</option>
+            <?php foreach($this->view->mangas as $indice_arr => $manga) { ?>
+                <option value="<?= $manga['id'] ?>"><?= $manga['nome'] ?> | <?= $manga['tipo'] ?></option>
+            <?php } ?>
+        </select>
+        <i class="fa-solid fa-caret-down"></i>
+        <label class="p-medium" for="id_manga">Nome</label>
+    </div>
+
+    <div class="single-select-black" id="con-control">
+        <select name="tipo" class="input" required>
+            <option value="" selected>---</option>
+            <option value="Light Novel">Light Novel</option>
+            <option value="Mangá">Mangá</option>
+        </select>
+        <i class="fa-solid fa-caret-down"></i>
+        <label class="p-medium" for="id_manga">Tipo</label>
+    </div>
+    <button type="submit" class="btn-green-small-BW">Editar Tipo</button>
+</form>

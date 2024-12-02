@@ -1,0 +1,11 @@
+<div class="header-admin-g">
+    <h3>Deletar Ícone</h3>
+</div>
+<div class="body-admin-img">
+    
+    <?php foreach($this->view->icones as $indice_arr => $icone) { ?>
+        <div class="con-admin-icon">
+            <a href="/removerIcone?id_icone=<?= $icone['id'] ?>"><img src="<?= $icone['path'] ?>" alt=""></a>
+        </div>
+    <?php } ?>
+</div>

@@ -1,0 +1,104 @@
+.janela-modal-admin {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: none;
+    align-items: center;
+    z-index: 999;
+    justify-content: center;
+    background-color: var(--blackOp);
+}
+
+.janela-modal-admin.abrir {
+    display: flex;
+}
+
+.abrir .modal-admin {
+    animation: abrirModal 0.3s;
+}
+
+.modal-admin {
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;
+    max-width: 58rem;
+    min-width: 30rem;
+    max-height: 30rem;
+    overflow: scroll;
+    background-color: var(--green);
+}
+
+.modal-admin h4 {
+    color: var(--whiteF);
+    text-align: center;
+    padding: 1rem;
+}
+
+.modal-admin label {
+    color: var(--whiteF);
+    text-align: center;
+}
+
+.content_modal_admin {
+    display: flex;
+    flex-direction: column;
+    max-width: 52rem;
+    overflow: scroll;
+    padding-bottom: 0.6rem;
+    //background-color: blueviolet;
+}
+
+.content_modal_admin form {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+input[type="file"] {
+    display: none;
+}
+
+.label-file {
+    margin-bottom: 1rem;
+    padding: 0.6rem;
+    border-radius: 2rem;
+    transition: 0.3s;
+}
+
+.label-file:hover {
+    cursor: pointer;
+   background-color: var(--whiteF);
+   color: var(--blackF);
+}
+
+.form-gerenciar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.header_modal_admin {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    border-bottom: 1px solid var(--whiteF);
+    margin-bottom: 1.6rem;
+}
+
+.header_modal_admin a {
+    padding: 6px;
+    color: var(--whiteF);
+}
+
+.header_modal_admin a:hover {
+    color: var(--blackF);
+    background-color: var(--whiteF);
+}
+
+#select-p {
+    margin-bottom: 26px;
+}

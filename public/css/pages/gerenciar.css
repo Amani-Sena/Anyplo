@@ -1,0 +1,57 @@
+.container-gerenciar {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 600px;
+  background-color: var(--green);
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 6.8vh;
+}
+
+.container-content-gerenciar {
+  display: flex;
+  flex-direction: row;
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: antiquewhite;
+}
+
+.content-right-gerenciar {
+  width: 50%;
+  background-color: aqua;
+  float: right;
+}
+
+.content-left-gerenciar {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  background-color: blueviolet;
+  float: left;
+}
+
+.caixa-pesquisa1 {
+  display: flex;
+  align-items: center;
+  width: 600px;
+  height: 200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.input-pesquisa {
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 15px;
+  margin-top: 15px;
+  padding: 2px 20px;
+  font-family: "Gotham Light";
+  width: 550px;
+  height: 46px;
+  border-radius: 22px;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  background-color: none;
+}/*# sourceMappingURL=gerenciar.css.map */

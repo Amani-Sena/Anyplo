@@ -1,0 +1,17 @@
+<h5>Editar Imagem</h5>
+<form action="/acaoAdmin?acaoAdmin=updatePath" enctype="multipart/form-data" method="post" id="formEditManga">
+    <div class="single-select-black" id="con-control">
+        <select name="id_manga" class="input" required>
+            <option value="" selected>---</option>
+            <?php foreach($this->view->mangas as $indice_arr => $manga) { ?>
+                <option value="<?= $manga['id'] ?>"><?= $manga['nome'] ?> | <?= $manga['tipo'] ?></option>
+            <?php } ?>
+            </select>
+            <i class="fa-solid fa-caret-down"></i>
+            <label class="p-medium" for="id_manga">Nome</label>
+    </div>
+        <label onclick="ImgPreview()" for="arquivoImg" class="btn-green-small">Selecionar Imagem</label>
+        <input type="file" name="arquivo" id="arquivoImg" class="input-small" required>
+        <img class="img-preview-path" id="img-Path" alt="">
+        <button type="submit" class="btn-green-small-BW">Editar Imagem</button>
+</form>

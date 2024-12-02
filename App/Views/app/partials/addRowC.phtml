@@ -1,0 +1,11 @@
+<div class="btn-add" id="btn-add">
+                <a href="/manga?id_manga=<?= $this->view->mangaI['id'] ?>"><i class="fa-solid fa-map"></i></a>
+                <a href="/baixar?n_cap=<?= $this->view->capI['n_cap'] ?>&id_manga=<?=  $this->view->capI['id_manga'] ?>"><i class="fa-solid fa-download"></i></a>
+                <?php if($this->view->listando['listando_sn'] == 0) { ?>
+                    <a onclick="addRow('/acao?acao=adicionar&id_manga=<?= $this->view->mangaI['id'] ?>', '/requestPartial?partial=addRowC&id_manga=<?= $this->view->mangaI['id'] ?>', 'btn-add')"><i class="fa-solid fa-bookmark"></i></a>
+                <?php } ?>
+
+                <?php if($this->view->listando['listando_sn'] == 1) { ?>
+                    <a onclick="addRow('/acao?acao=remover&id_manga=<?= $this->view->mangaI['id'] ?>', '/requestPartial?partial=addRowC&id_manga=<?= $this->view->mangaI['id'] ?>', 'btn-add')"><i class="fa-solid fa-xmark"></i></a>
+                <?php } ?>
+            </div>

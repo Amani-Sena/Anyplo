@@ -1,0 +1,50 @@
+//definitions
+@import "./definitions/reset.scss";
+@import "./definitions/colors.scss";
+@import "./definitions/font_size.scss";
+@import "./definitions/fonts.scss";
+@import "./definitions/general_formatty.scss";
+@import "./definitions/btn.scss";
+@import "./definitions/scrollbar.scss";
+@import "./definitions/card.scss";
+@import "./definitions/input.scss";
+@import "./definitions/swiper-home.scss";
+@import "./definitions/swiper-section.scss";
+@import "./definitions/notifications.scss";
+@import "./definitions/dropdown.scss";
+@import "./definitions/rodape.scss";
+@import "./definitions/loading.scss";
+
+//functions
+@import "./functions/dark_mode.scss";
+
+//layout
+@import "./layout/header.scss";
+
+//modals
+@import "./modals/modal_addLista.scss";
+@import "./modals/modal_icones.scss";
+@import "./modals/modal_bg.scss";
+@import "./modals/modal_edit.scss";
+@import "./modals/modal_categorias.scss";
+@import "./modals/modal_notifica.scss";
+@import "./modals/modal_premium.scss";
+@import "./modals/modal_mobileMenu.scss";
+@import "./modals/modal_admin.scss";
+@import "./modals/modal.scss";
+
+//pages
+@import "./pages/index.scss";
+@import "./pages/login.scss";
+@import "./pages/profile.scss";
+@import "./pages/pesquisar.scss";
+@import "./pages/minhas_listas.scss";
+@import "./pages/lista_home.scss";
+@import "./pages/gerenciar_home.scss";
+@import "./pages/gerenciar.scss";
+@import "./pages/manga.scss";
+@import "./pages/paginas.scss";
+@import "./pages/conf.scss";
+@import "./pages/categoria.scss";
+@import "./pages/grupos.scss";
+

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <!-- Title -->
+    <title>Minhas Listas - Anyplo</title>
+</head>
+
+<body>
+    
+    <?php require_once ("../App/Views/partials/header.phtml") ?>
+    
+    
+        <div class="con-header-my_lists">
+            <div id="btn-list">
+                <a id="btn-fila" class="btn-fila" onclick="requestPartial('/requestPartial?partial=row', 'con-list', 'con-lists')">Fila</a>
+                <a id="btn-lista" class="selected-list btn-list" onclick="requestPartial('/requestPartial?partial=list', 'con-lists', 'con-list')">Listas</a>
+                <a id="btn-hist" class="btn-hist" onclick="requestPartial('/requestPartial?partial=history', 'con-list', 'con-lists')">Histórico</a>
+            </div>
+        </div>
+
+        <div class="content-card" id="con-list">
+            
+        </div>
+
+        <div id="con-lists">
+            <div class="con-add-list">
+                <?php if($this->view->count_listas['count'] < 5) { ?>
+                    <a class="btn-green-square" onclick="abrirModal('janela-modal-addList')">Criar Lista</a>
+                <?php } else if($this->view->count_listas['count'] >= 5) { ?>
+                    <a class="btn-green-square disabled">Criar Lista</a>
+                <?php } ?>
+            </div>
+            <?php if($this->view->count_listas['count'] > 0) { ?>
+                    <?php foreach($this->view->lista as $indice_arr => $lista) { ?>
+                        <div class="con-list-div" onclick="window.location='/lista_home?id_lista=<?= $lista['id'] ?>'">
+                            <h5><?= $lista['nome'] ?> </h5><a href="/acao?acao=removerLista&red=/lista&id_lista=<?= $lista['id'] ?>"></a>
+                            <p><?= $lista['count_itens'] ?> Itens</p>
+                        </div>
+                    <?php } ?>
+                <?php } else if($this->view->count_listas['count'] == 0) { ?>
+                    <div class="con-none-home_list">
+                        <div class="con-content-none">
+                            <img src="img/Menhera-chan4.png" alt="">
+                            <p>Crie listas, é de graça!</p>
+                        </div>
+                    </div>
+                <?php } ?>
+        </div>
+        <?php require_once ("../App/views/partials/footer.phtml") ?><!-- Footer/Rodapé -->
+</main>
+
+<!-- Modal AddList -->
+<div class="janela-modal" id="janela-modal-addList">
+        <div class="modal">
+            <div class="con-content-modal" id='con-content-modal'>
+                <div class="con-close">
+                    <a class="fechar"><i class="fa-solid fa-x" id="fechar"></i></a>
+                </div>
+                <h4>Criar Lista</h4>
+                <div>
+                        <div class="con-form">
+                            <form method="post" id="form_addlist">
+                            
+                                <div class="single-input-whiteF">
+                                    <input type="text" name="nome" id="nome" required maxlength="16" class="input">
+                                    <label class="p-medium" for="nome">Criar Nova Lista</label>
+                                </div>
+                            
+                                <div class="btn-modal">
+                                    <button type="submit" class="btn-white" id="btn-criar" onclick="createList('/criarLista', '/requestPartial?partial=list&id_manga=<?= $this->view->mangaI['id'] ?>')">Criar lista</button>
+                                    <a class="btn-white" id="btn-cancel">Cancelar</a> 
+                                </div>
+                            </form>
+                        </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+        <script src="js/minhas_listas.js"></script>
+</body>
+</html>

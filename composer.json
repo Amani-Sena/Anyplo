@@ -1,0 +1,22 @@
+{
+    "name": "amanisena/anyplo",
+    "description": "Site de mangas",
+    "require": {
+        "php": ">=7.0",
+        "phpmailer/phpmailer": "^6.6",
+        "google/apiclient": "^2.13",
+        "gregwar/image": "^2.1"
+    },
+    "authors":[
+        {
+            "name": "Amani Sena",
+            "email": "amani.sena955@gmail.com"
+        }   
+    ],
+    "autoload": {
+        "psr-4": {
+            "App\\": "App/",
+            "MF\\": "vendor/MF/"
+        }
+    }
+}

@@ -1,0 +1,121 @@
+.janela-modal-categorias {
+  width: 100vw;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: none;
+  z-index: 99;
+  justify-content: center;
+  background-color: var(--blackOp);
+}
+
+.janela-modal-categorias.abrir {
+  display: flex;
+}
+
+.abrir .modal-categorias {
+  animation: abrirModal 0.3s;
+}
+
+.modal-categorias {
+  display: flex;
+  width: 100%;
+  height: 14rem;
+  min-height: 14rem;
+  background-color: var(--green);
+  align-items: center;
+  margin-top: 3.2rem;
+}
+
+.modal-categorias h4 {
+  margin-bottom: 16px;
+  text-align: center;
+  color: var(--whiteF);
+}
+
+.modal-categorias p {
+  text-align: center;
+  color: var(--whiteF);
+}
+
+.fechar-categorias {
+  margin-right: -90px;
+  margin-top: -48px;
+  float: right;
+  right: -20px;
+  border: 0;
+  font-size: 20px;
+}
+
+.fechar-categorias i {
+  color: var(--whiteF);
+}
+
+#container-categorias {
+  display: flex;
+  flex-direction: row;
+  margin-left: auto;
+  margin-right: auto;
+  width: 60%;
+  min-width: 56rem;
+  height: 80%;
+}
+
+#content-right-categorias {
+  display: grid;
+  grid-auto-flow: column;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+  flex-wrap: nowrap;
+  width: 100%;
+  height: 100%;
+}
+
+#content-right-categorias a {
+  padding: 0.6rem;
+  color: var(--whiteF);
+}
+
+#content-right-categorias a:hover {
+  background-color: var(--whiteF);
+  color: var(--blackF);
+}
+
+#content-left-categorias {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  width: 40%;
+  height: 100%;
+  background-color: var(--greenAlt);
+  float: left;
+  transition: 0.3s;
+}
+
+#content-left-categorias a {
+  padding: 0.7rem;
+  color: var(--whiteF);
+}
+
+#content-left-categorias a:hover {
+  background-color: var(--whiteF);
+  color: var(--blackF);
+}
+
+@keyframes abrirModal {
+  from {
+    opacity: 0;
+    transform: translate3d(0, -20px, -5px);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+@media (max-width: 1150px) {
+  .modal-categorias {
+    display: none;
+  }
+}/*# sourceMappingURL=modal_categorias.css.map */

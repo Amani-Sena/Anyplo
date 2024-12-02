@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+
+    <!-- Title -->
+    <title>Error 404 - Anyplo</title>
+    <style>
+        body {
+            background-image: url('../../img/<?= $this->view->bg ?>');
+        }
+    </style>
+
+</head>
+  
+<body>
+    <?php require_once ("../App/views/partials/headerAlt.phtml") ?><!--Cabeçalho -->
+
+    
+    <div class="con-conf">
+            <h5 class="c-whiteF">Algo deu errado...</h5><br>
+            <div class="con-img-conf">
+                <img src="img/Menhera_error404.webp">
+            </div>
+            <h5 class="bold c-whiteF">Erro 404 - Not Found</h5><br>
+            <p class="c-whiteF">Parece que não tem nada aqui.</p>
+    </div>
+    
+
+        <?php require_once ("../App/views/partials/footer.phtml") ?><!-- Footer/Rodapé -->
+</main>
+</body>

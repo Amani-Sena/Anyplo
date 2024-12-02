@@ -1,0 +1,36 @@
+<div class="header-admin-g">
+                <h3>Adicionar Capítulo</h3>
+            </div>
+        
+            <div class="body-admin-gg">
+                <form action="/addCap" enctype="multipart/form-data" method="post" class="form-gerenciar">
+                        <div class="single-select-black" id="con-control">
+                            <select name="id_manga" class="input" required>
+                                <option value="" selected>---</option>
+                                <?php foreach($this->view->mangas as $indice_arr => $manga) { ?>
+                                    <option value="<?= $manga['id'] ?>"><?= $manga['nome'] ?> | <?= $manga['tipo'] ?> </option>
+                                <?php } ?>
+                            </select>
+                            <i class="fa-solid fa-caret-down"></i>
+                            <label class="p-medium" for="id_manga">Nome</label>
+                        </div>
+
+                        <div class="single-input-black">
+                            <input type="text" name="n_cap" id="n_cap" required class="input" >
+                            <label class="p-medium" for="n_cap">Nº do Capítulo</label>
+                        </div>
+                        <label for="arquivoPag" class="btn-green-small-BW">Selecionar Páginas</label>
+                        <input multiple="multiple" type="file" name="arquivo[]" id="arquivoPag" class="input-small" required>
+                        <div class="single-select-black" id="con-control">
+                            <select name="fansub" class="input" required>
+                                <option value="" selected>---</option>
+                                <?php foreach($this->view->scans as $indice_arr => $scan) { ?>
+                                    <option value="<?= $scan['id'] ?>"><?= $scan['nome'] ?></option>
+                                <?php } ?>
+                            </select>
+                            <i class="fa-solid fa-caret-down"></i>
+                            <label class="p-medium" for="fansub">Grupo de Tradução</label>
+                        </div>
+                        <button type="submit" class="btn-green-small-BW">Enviar Capitulo</button>
+                    </form>    
+            </div>

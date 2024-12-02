@@ -1,0 +1,49 @@
+<h5>Editar Gêneros</h5>
+<form action="/acaoAdmin?acaoAdmin=updateGenero" method="post" class="form-gerenciar">
+    <div class="single-select-black" id="con-control">
+        <select name="id_manga" class="input" required>
+            <option value="" selected>---</option>
+            <?php foreach($this->view->mangas as $indice_arr => $manga) { ?>
+                <option value="<?= $manga['id'] ?>"><?= $manga['nome'] ?> | <?= $manga['tipo'] ?></option>
+            <?php } ?>
+            </select>
+            <i class="fa-solid fa-caret-down"></i>
+            <label class="p-medium" for="id_manga">Nome</label>
+    </div>
+
+    <div class="single-select-black" id="con-control">
+        <select name="genero1N" class="input" required>
+            <option value="" selected>---</option>
+            <?php foreach($this->view->generos as $indice_arr => $manga) { ?>
+                <option value="<?= $manga['nome'] ?>"><?= $manga['nome'] ?></option>
+            <?php } ?>
+        </select>
+        <i class="fa-solid fa-caret-down"></i>
+        <label class="p-medium" for="genero1N">Gênero Primário</label>
+    </div>
+
+    <div class="single-select-black" id="con-control">
+        <select name="genero2N" class="input" required>
+            <option value="" selected>---</option>
+            <?php foreach($this->view->generos as $indice_arr => $manga) { ?>
+                <option value="<?= $manga['nome'] ?>"><?= $manga['nome'] ?></option>
+            <?php } ?>
+        </select>
+        <i class="fa-solid fa-caret-down"></i>
+        <label class="p-medium" for="genero2N">Gênero Secundário</label>
+    </div>
+
+    <div class="single-select-black" id="con-control">
+        <select name="genero3N" class="input" required>
+            <option value="" selected>---</option>
+            <?php foreach($this->view->generos as $indice_arr => $manga) { ?>
+                <option value="<?= $manga['nome'] ?>"><?= $manga['nome'] ?></option>
+            <?php } ?>
+        </select>
+        <i class="fa-solid fa-caret-down"></i>
+        <label class="p-medium" for="genero3N">Gênero Terciário</label>
+    </div>
+
+    <button type="submit" class="btn-green-small-BW">Editar Gêneros</button>
+</form>
+                

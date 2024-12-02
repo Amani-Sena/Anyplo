@@ -1,0 +1,19 @@
+<h5>Editar Descrição</h5>
+<form action="/acaoAdmin?acaoAdmin=updateDescricaoCategoria" enctype="multipart/form-data" method="post" class="form-gerenciar">
+    <div class="single-select-black" id="con-control">
+        <select name="id_categoria" class="input" required>
+            <option value="" selected>---</option>
+            <?php foreach($this->view->categorias as $indice_arr => $categoria) { ?>
+                <option value="<?= $categoria['id'] ?>"><?= $categoria['nome'] ?> </option>
+            <?php } ?>
+        </select>
+        <i class="fa-solid fa-caret-down"></i>
+        <label class="p-medium" for="id_categoria">Descrição</label>
+    </div>
+    
+    <div class="single-input-black">
+        <input type="text" name="descricaoN" id="descricaoN" required class="input" >
+        <label class="p-medium" for="descricaoN">Descrição Editada</label>
+    </div>
+    <button type="submit" class="btn-green-small-BW">Editar Descrição</button>
+                    </form>

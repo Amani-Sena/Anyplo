@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+
+    <!-- Title -->
+    <title>Grupos de Tradução - Anyplo</title>
+
+</body>
+
+</head>
+
+<body>
+    
+    <?php require_once ("../App/Views/partials/header.phtml") ?>
+    
+    <div class="con-scan">
+    <?php foreach($this->view->scan_info as $indice_arr => $scan) { ?>
+        <div class="con-list-scan">
+            <img src="<?= $scan['logo'] ?>" alt="">
+            <h5><?= $scan['nome'] ?></h5>
+            <div class="icons-scan">
+                    <a target="_blank" <?php if($scan['site'] != '') { ?> class="d-on"<?php } else { ?> class="d-off" <?php } ?> href="<?= $scan['site'] ?>"><i class="fa-solid fa-house"></i></a>
+                    <a target="_blank" <?php if($scan['facebook'] != '') { ?> class="d-on"<?php } else { ?> class="d-off" <?php } ?> href="<?= $scan['facebook'] ?>"><i class="fa-brands fa-facebook"></i></a>
+                    <a target="_blank" <?php if($scan['discord'] != '') { ?> class="d-on"<?php } else { ?> class="d-off" <?php } ?> href="<?= $scan['discord'] ?>"><i class="fa-brands fa-discord"></i></a>
+                    <a target="_blank" <?php if($scan['twitter'] != '') { ?> class="d-on"<?php } else { ?> class="d-off" <?php } ?> href="<?= $scan['twitter'] ?>"><i class="fa-brands fa-x-twitter"></i></a>
+                    <a target="_blank" <?php if($scan['doar'] != '') { ?> class="d-on"<?php } else { ?> class="d-off" <?php } ?> href="<?= $scan['doar'] ?>"><i class="fa-solid fa-hand-holding-dollar"></i></a>
+            </div>
+        </div>
+    <?php } ?> 
+    </div>
+    
+            
+    <?php require_once ("../App/views/partials/footer.phtml") ?><!-- Footer/Rodapé -->
+</main>
+    <script src="js/pesquisar.js"></script>
+</body>
+</html>

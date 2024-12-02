@@ -1,0 +1,43 @@
+<?php if($this->view->count_fila['count'] > 0) { ?>
+    <?php foreach($this->view->mangas as $indice_arr => $manga) { ?>
+        <?php if($manga['class'] == 1) { ?>
+            <?php if($manga['class'] == $this->view->class['class']) { ?>
+                <div class="card-container">
+                    <div class="card-img">
+                        <a onclick="addRow('/acao?acao=remover&id_manga=<?= $manga['id'] ?>', '/requestPartial?partial=row', 'con-list')" class="a-trash-card-con"><i class="fa-solid fa-minus"></i></a>
+                        <a href="/manga?id_manga=<?= $manga['id'] ?>"><img src="<?= $manga['path'] ?>" alt=""></a>
+                    </div>
+                    <div class="card-name">
+                        <a href="/manga?id_manga=<?= $manga['id'] ?>"><?= $manga['nome'] ?></a>
+                    </div>
+                </div> 
+            <?php } ?>
+        <?php } else { ?>
+            <div class="card-container">
+                <div class="card-img">
+                    <a onclick="addRow('/acao?acao=remover&id_manga=<?= $manga['id'] ?>', '/requestPartial?partial=row', 'con-list')" class="a-trash-card-con"><i class="fa-solid fa-minus"></i></a>
+                    <a href="/manga?id_manga=<?= $manga['id'] ?>"><img src="<?= $manga['path'] ?>" alt=""></a>
+                </div>
+                <div class="card-name">
+                    <a href="/manga?id_manga=<?= $manga['id'] ?>"><?= $manga['nome'] ?></a>
+                </div>
+            </div>
+        <?php } ?>
+    <?php } ?>
+    <?php if($this->view->limitF > 1) { ?>
+    <div class="container-pagination">
+        <a onclick="requestPartial('/requestPartial?partial=row&page=1', 'con-list')" class="direction-pagination"><i class="fa-solid fa-chevron-left"></i></a>
+        <?php for($i = 1; $i <= $this->view->limitF; $i++) {?> 
+            <a onclick="requestPartial('/requestPartial?partial=row&page=<?= $i ?>', 'con-list')" class="a-pagination <?= $this->view->active == $i ? 'active-pagination' : '' ?>"><?= $i ?></a>
+        <?php } ?>
+        <a onclick="requestPartial('/requestPartial?partial=row&page=<?= $this->view->limitF ?>', 'con-list')"  class="direction-pagination"><i class="fa-solid fa-chevron-right"></i></a>
+    </div>
+    <?php } ?>
+<?php } else if($this->view->count_fila['count'] == 0) { ?>
+    <div class="con-none-home_list">
+        <div class="con-content-none">
+        <img src="img/Menhera-chan5.png" alt="">
+        <p>Aqueça a fila adicionando<br> suas obras favoritas!</p>
+        </div>
+    </div>
+<?php } ?>

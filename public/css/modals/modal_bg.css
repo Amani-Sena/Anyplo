@@ -1,0 +1,100 @@
+.janela-modal-bg {
+  width: 100vw;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: none;
+  align-items: center;
+  z-index: 999;
+  justify-content: center;
+  background-color: var(--blackOp);
+}
+
+.janela-modal-bg.abrir {
+  display: flex;
+}
+
+.abrir .modal-bg {
+  animation: abrirModal 0.3s;
+}
+
+.modal-bg {
+  width: 600px;
+  min-width: 450px;
+  min-height: 200px;
+  background-color: var(--green);
+  padding: 50px;
+  align-items: center;
+}
+
+.modal-bg h4 {
+  margin-bottom: 16px;
+  text-align: center;
+  color: var(--whiteF);
+}
+
+.modal-bg p {
+  text-align: center;
+  color: var(--whiteF);
+}
+
+.fechar-bg {
+  margin-right: -90px;
+  margin-top: -48px;
+  float: right;
+  right: -20px;
+  border: 0;
+  font-size: 20px;
+}
+
+.fechar-bg i {
+  color: var(--whiteF);
+}
+
+#container-bg {
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: 16rem 16rem;
+  width: 100%;
+  justify-content: center;
+  height: 28rem;
+  margin-left: auto;
+  margin-right: auto;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  padding-bottom: 2rem;
+  padding-top: 2rem;
+}
+
+#container-bg img {
+  width: 16.4rem;
+  height: 5rem;
+  transition: 0.3s;
+  border: 2px solid var(--whiteF);
+}
+
+#container-bg img:hover {
+  transform: scale(1.08);
+}
+
+@keyframes abrirModal {
+  from {
+    opacity: 0;
+    transform: translate3d(0, -20px, -5px);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+@media (max-width: 660px) {
+  #container-bg {
+    grid-template-columns: 16rem;
+    height: 32rem;
+  }
+  #container-bg img {
+    width: 17rem;
+    height: 5.6rem;
+  }
+}/*# sourceMappingURL=modal_bg.css.map */

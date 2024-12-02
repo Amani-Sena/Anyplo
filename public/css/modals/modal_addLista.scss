@@ -1,0 +1,75 @@
+//Formatação addList
+#lists-div-addLista {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 80%;
+    height: 5.2rem;
+    margin-left: auto;
+    margin-right: auto;
+    transition: 0.3s;
+    border-bottom: 0.6px solid var(--blackOp);
+}
+
+#con-title-manga {
+    width: 100%;
+}
+
+#con-count-manga {
+    
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#lists-div-addLista h5 {
+    text-align: left;
+    color: var(--whiteF);
+    margin-left: 1rem;
+}
+
+#lists-div-addLista em {
+    color: var(--whiteF);
+    margin-left: 1rem;
+}
+
+#lists-div-addLista i {
+    color: var(--whiteF);
+    margin-right: 1rem;
+    font-size: 1.3rem;
+}
+
+#lists-div-addLista:hover {
+    background-color: var(--greenAlt);
+    cursor: pointer;
+}
+
+#con-h-addLista {
+    display: flex;
+    align-items: center;
+    width: 78%;
+    justify-content: space-between;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 16px;
+    align-items: center;
+    color: var(--whiteF);
+}
+
+#con-h-addLista.hide {
+    display: none;
+}
+
+@keyframes abrirModal {
+    from {
+        opacity: 0;
+        transform: translate3d(0, -20px, -5px);
+    } to {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+    }
+}
+  

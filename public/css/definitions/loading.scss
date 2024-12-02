@@ -1,0 +1,25 @@
+/*.loading-center {
+    animation: is-rotating 0.8s infinite;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 4rem;
+    border-radius: 50%;
+    width: 3.8rem;
+    height: 3.8rem;
+    border: 0.25rem solid transparent;
+    border-top-color: var(--green);
+    border-bottom-color: var(--green);
+}*/
+
+.loading-center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 4rem;
+    width: 11rem;
+    height: 10rem;
+}
+
+
+

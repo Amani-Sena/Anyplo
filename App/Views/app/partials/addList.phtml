@@ -1,0 +1,79 @@
+<div class="modal">
+            <div class="con-content-modal" id='con-content-modal'>
+                <div class="con-close">
+                    <a class="fechar"><i class="fa-solid fa-x" id="fechar"></i></a>
+                </div>
+                <h4>Adicionar à lista</h4>
+                <div id="con-form-addList">
+                        <div class="con-form">
+                            <form method="post" id="form_addlist">
+                            
+                                <div class="single-input-whiteF">
+                                    <input type="text" name="nome" id="nome" required maxlength="16" class="input">
+                                    <label class="p-medium" for="nome">Criar Nova Lista</label>
+                                </div>
+                            
+                                <div class="btn-modal">
+                                <button type="submit" class="btn-white" id="btn-criar" onclick="createList('/criarLista', '/requestPartial?partial=addList&id_manga=<?= $this->view->mangaI['id'] ?>')">Criar lista</button>
+                                    <a class="btn-white" id="btn-cancel-addList" onclick="fecharaddList()">Cancelar</a> 
+                                </div>
+                            </form>
+                        </div>
+                </div>
+                
+                <div id="con-h-addLista">
+                    <em><?= '0' . $this->view->count['count'] ?>/05 Listas</em>
+                    <?php if($this->view->count['count'] < 5) { ?>
+                        <a class="btn-white-square" id="criar" onclick="abriraddList()">Criar nova lista</a>
+                    <?php } ?>
+
+                    <?php if($this->view->count['count'] == 5) { ?>
+                        <a class="btn-white-square disabled" id="criar" onclick="abriraddList()">Criar nova lista</a>
+                    <?php } ?>
+                </div>
+                
+
+                <?php foreach($this->view->lista as $indice_arr => $lista) { ?>
+                    <?php if($lista['listando_sn'] == 0) { ?>
+                        <?php if($lista['count_itens'] < 50) { ?>
+                            <a onclick="addList('/acao?acao=addlist&id_manga=<?= $this->view->mangaI['id'] ?>&id_lista=<?= $lista['id'] ?>', '/requestPartial?partial=addList&id_manga=<?= $this->view->mangaI['id'] ?>')">
+                            <div id="lists-div-addLista">
+                                <div id="con-title-manga">
+                                    <h5><?= $lista['nome'] ?></h5>
+                                </div>
+                                <div id="con-count-manga">
+                                    <em><?= $lista['count_itens'] ?> Itens</em>
+                                    <i class="fa-regular fa-plus"></i>
+                                </div>
+                            </div>
+                            </a>
+                            <?php } else if($lista['count_itens'] >= 50) { ?>
+                                <a class="disabled">
+                                <div id="lists-div-addLista">
+                                    <div class="disabled" id="con-title-manga">
+                                        <h5><?= $lista['nome'] ?></h5>
+                                    </div>
+                                    <div class="disabled" id="con-count-manga">
+                                        <em><?= $lista['count_itens'] ?> Itens</em>
+                                        <i class="fa-regular fa-plus"></i>
+                                    </div>
+                                </div>
+                                </a>
+                            <?php } ?>
+                            <?php } else if($lista['listando_sn'] == 1) { ?> 
+                                <a onclick="addList('/acao?acao=removerMangaLista&id_manga=<?= $this->view->mangaI['id'] ?>&id_lista=<?= $lista['id'] ?>', '/requestPartial?partial=addList&id_manga=<?= $this->view->mangaI['id'] ?>')">
+                                <div id="lists-div-addLista">
+                                    <div id="con-title-manga">
+                                        <h5><?= $lista['nome'] ?></h5>
+                                    </div>
+                                    <div id="con-count-manga">
+                                        <em><?= $lista['count_itens'] ?> Itens</em>
+                                        <i class="fa-solid fa-minus"></i>
+                                    </div>
+                                </div>
+                                </a>
+                            <?php } ?>
+                <?php } ?>
+                
+            </div>
+        </div>

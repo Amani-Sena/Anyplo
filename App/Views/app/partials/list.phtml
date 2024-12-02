@@ -1,0 +1,22 @@
+<div class="con-add-list">
+                <?php if($this->view->count_listas['count'] < 5) { ?>
+                    <a class="btn-green-square" onclick="abrirModal('janela-modal-addList')">Criar Lista</a>
+                <?php } else if($this->view->count_listas['count'] >= 5) { ?>
+                    <a class="btn-green-square disabled">Criar Lista</a>
+                <?php } ?>
+            </div>
+<?php if($this->view->count_listas['count'] > 0) { ?>
+    <?php foreach($this->view->lista as $indice_arr => $lista) { ?>
+        <div class="con-list-div" onclick="window.location='/lista_home?id_lista=<?= $lista['id'] ?>'">
+            <h5><?= $lista['nome'] ?> </h5><a href="/acao?acao=removerLista&red=/lista&id_lista=<?= $lista['id'] ?>"></a>
+            <p><?= $lista['count_itens'] ?> Itens</p>
+        </div>
+    <?php } ?>
+    <?php } else if($this->view->count_listas['count'] == 0) { ?>
+        <div class="con-none-home_list">
+            <div class="con-content-none">
+                <img src="img/Menhera-chan4.png" alt="">
+                <p>Crie listas, é de graça!</p>
+            </div>
+        </div>
+<?php } ?>

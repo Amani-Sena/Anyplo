@@ -1,0 +1,49 @@
+.main-home {
+  min-height: 100%;
+  min-width: 100%;
+  transition: 0.3s;
+}
+
+body {
+  font-family: "Gotham Light";
+  background: var(--bg-white);
+  overflow-X: hidden;
+  overflow-y: scroll;
+  position: absolute;
+  min-width: 100%;
+  min-height: 100%;
+  transition: 0.3s;
+}
+
+ul {
+  list-style: none;
+}
+
+main {
+  position: absolute;
+  padding-bottom: 16rem;
+  width: 100%;
+  min-height: 100vh;
+}
+
+input {
+  font-family: "Gotham Light";
+}
+
+button {
+  font-family: "Gotham Light";
+}
+
+.disabled {
+  pointer-events: none;
+  cursor: default;
+  opacity: 0.4;
+}
+
+.f-right {
+  float: right;
+}
+
+.f-left {
+  float: left;
+}/*# sourceMappingURL=general_formatty.css.map */

@@ -1,0 +1,30 @@
+.con-conf {
+  width: 50%;
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: 12rem;
+  margin-bottom: 12rem;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+}
+
+.con-conf h5 {
+  filter: drop-shadow(3px 3px 1px var(--blackF));
+}
+
+.con-conf p {
+  filter: drop-shadow(3px 3px 1px var(--blackF));
+}
+
+.con-img-conf img {
+  width: 16rem;
+  height: 16rem;
+}
+
+@media (max-width: 660px) {
+  .con-conf {
+    width: 90%;
+  }
+}/*# sourceMappingURL=conf.css.map */

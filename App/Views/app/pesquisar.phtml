@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+
+    <!-- Title -->
+    <title>Pesquisar - Anyplo</title>
+
+</body>
+
+</head>
+
+<body>
+    
+    <?php require_once ("../App/Views/partials/header.phtml") ?>
+    
+    <div class="con-search" id="con-search">
+        
+        <div class="con-form"> 
+            <form id="form_pesquisar">
+                <p><?= $_SESSION['teste'] ?></p>
+                <div class="single-input-black">
+                    <input type="text" name="pesquisarPor" id="pesquisarPor" required class="input" onkeyup="pesquisar()">
+                    <label class="p-big" for="pesquisarPor">Buscar...</label>
+                </div>
+            </form>
+        </div>
+    </div>
+        
+    <div class="con_card-search" id="con_card-search">
+        <div class="content-card-Alt" id="content-card-Alt">
+        <?php if($this->view->manga_count['count_manga'] > 0) { ?>
+            
+        <?php foreach($this->view->mangas as $indice_arr => $manga) { ?>
+            <?php if($manga['class'] == 1) { ?>
+                <?php if($manga['class'] == $this->view->class['class']) { ?>
+                    <div class="card-container">
+                        <div class="card-img">
+                            <em class="con-a-cap-card-red c-whiteF">A18</em>
+                            <a href="/manga?id_manga=<?= $manga['id'] ?>"><img src="<?= $manga['path'] ?>" alt=""></a>
+                        </div>
+                        <div class="card-name">
+                            <a href="/manga?id_manga=<?= $manga['id'] ?>"><?= $manga['nome'] ?></a>
+                        </div>
+                    </div>
+                    <?php } ?>
+                <?php } else { ?>
+                    <div class="card-container">
+                        <div class="card-img">
+                            <a href="/manga?id_manga=<?= $manga['id'] ?>"><img src="<?= $manga['path'] ?>" alt=""></a>
+                        </div>
+                        <div class="card-name">
+                            <a href="/manga?id_manga=<?= $manga['id'] ?>"><?= $manga['nome'] ?></a>
+                        </div>
+                    </div>
+                <?php } ?>
+            <?php } ?>
+            
+            <?php if($this->view->limitF > 1) { ?>
+                <div class="container-pagination">
+                    <a onclick="requestPartial('/requestPartial?partial=con_pesquisar&page=1&pesquisarPor=<?= $this->view->pesquisa ?>', 'con_card-search')" href="" class="direction-pagination"><i class="fa-solid fa-chevron-left"></i></a>
+                    <?php for($i = 1; $i <= $this->view->limitF; $i++) { ?> 
+                        <a onclick="requestPartial('/requestPartial?partial=con_pesquisar&page=<?= $i ?>&pesquisarPor=<?= $this->view->pesquisa ?>', 'con_card-search')" class="a-pagination <?= $this->view->active == $i ? 'active-pagination' : '' ?>"><?= $i ?></a>
+                    <?php } ?>
+                    <a onclick="requestPartial('/requestPartial?partial=con_pesquisar&page=<?= $this->view->limitF ?>&pesquisarPor=<?= $this->view->pesquisa ?>', 'con_card-search')" class="direction-pagination"><i class="fa-solid fa-chevron-right"></i></a>
+                </div>
+            <?php } ?>
+        
+        <?php } else if($this->view->manga_count['count_manga'] == 0) { ?>
+            <div class="con-none-home_list">
+                    <div class="con-content-none">
+                        <img src="img/menhera-chan2.png" alt="">
+                        <p>Desculpe, não encontramos nada...</p>
+                    </div>
+            </div>
+        <?php } ?>
+        </div>
+    </div>
+    
+            
+    <?php require_once ("../App/views/partials/footer.phtml") ?><!-- Footer/Rodapé -->
+</main>
+    <script src="js/pesquisar.js"></script>
+</body>
+</html>

@@ -1,0 +1,76 @@
+<?php error_reporting(0); ini_set("display_errors", 0 ); session_start(); ?>
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+
+    <!-- Title -->
+    <title>Admin - Anyplo</title>
+    
+    
+</head>
+
+<body>
+   <?php require_once ("../App/Views/partials/header.phtml") ?><!--Cabeçalho -->
+   
+   <div class="con-cont-admin">
+    <div class="con-side">
+            <a onclick="dropdown_admin('manga-drop')">Mangás <em class="caret-down-admin"></em></a>
+            <div class="dropdown-admin-side" id="manga-drop">
+                <a onclick="abrirPartial('/requestPartialAdmin?partial=addManga','addManga')">Adicionar</a>
+                <a onclick="abrirPartial('/requestPartialAdmin?partial=editManga', 'editManga')">Editar</a>
+                <a onclick="abrirPartial('/requestPartialAdmin?partial=deletManga')">Deletar</a>
+            </div>
+            <a onclick="dropdown_admin('cap-drop')">Capítulos <em class="caret-down-admin"></em></a>
+            <div class="dropdown-admin-side" id="cap-drop">
+                <a onclick="abrirPartial('/requestPartialAdmin?partial=addCap')">Adicionar</a>
+                <a onclick="abrirPartial('/requestPartialAdmin?partial=editCap')">Editar</a>
+                <a onclick="abrirPartial('/requestPartialAdmin?partial=deletCap')">Deletar</a>
+            </div>
+            <a onclick="dropdown_admin('icone-drop')">Ícones <em class="caret-down-admin"></em></a>
+            <div class="dropdown-admin-side" id="icone-drop">
+                <a onclick="abrirPartial('/requestPartialAdmin?partial=addIcone')">Adicionar</a>
+                <a onclick="abrirPartial('/requestPartialAdmin?partial=deletIcone')">Deletar</a>
+            </div>
+            <a onclick="dropdown_admin('bg-drop')">Backgrounds <em class="caret-down-admin"></em></a>
+            <div class="dropdown-admin-side" id="bg-drop">
+                <a onclick="abrirPartial('/requestPartialAdmin?partial=addBg')">Adicionar</a>
+                <a onclick="abrirPartial('/requestPartialAdmin?partial=deletBg')">Deletar</a>
+            </div>
+            <a onclick="dropdown_admin('cat-drop')">Categorias <em class="caret-down-admin"></em></a>
+            <div class="dropdown-admin-side" id="cat-drop">
+                <a onclick="abrirPartial('/requestPartialAdmin?partial=addCat')">Adicionar</a>
+                <a onclick="abrirPartial('/requestPartialAdmin?partial=editCat')">Editar</a>
+                <a onclick="abrirPartial('/requestPartialAdmin?partial=deletCat')">Deletar</a>
+            </div>
+            <a onclick="dropdown_admin('title-drop')">Títulos <em class="caret-down-admin"></em></a>
+            <div class="dropdown-admin-side" id="title-drop">
+                <a onclick="abrirPartial('/requestPartialAdmin?partial=addTitle')">Adicionar</a>
+                <a onclick="abrirPartial('/requestPartialAdmin?partial=editTitle')">Editar</a>
+                <a onclick="abrirPartial('/requestPartialAdmin?partial=deletTitle')">Deletar</a>
+            </div>
+            <a onclick="dropdown_admin('scan-drop')">Grupos de Tradução <em class="caret-down-admin"></em></a>
+            <div class="dropdown-admin-side" id="scan-drop">
+                <a onclick="abrirPartial('/requestPartialAdmin?partial=addScan')">Adicionar</a>
+                <a onclick="abrirPartial('/requestPartialAdmin?partial=editScan')">Editar</a>
+                <a onclick="abrirPartial('/requestPartialAdmin?partial=deletScan')">Deletar</a>
+            </div>
+            <a onclick="dropdown_admin('users-drop')">Usuários <em class="caret-down-admin"></em></a>
+            <div class="dropdown-admin-side" id="users-drop">
+                <a onclick="abrirPartial('/requestPartialAdmin?partial=addScan')">Gerenciar</a>
+            </div>
+            
+            <!--<a onclick="abrirPartial('/requestPartialAdmin?partial=denuncias','denuncias')">Denuncias</a>-->
+
+            
+    </div>
+
+    <div class="con-admin-p">
+        <div class="con-admin-g" id="admin-G">
+
+        </div>
+    </div>
+   </div>
+
+    <script src="js/admin.js" defer></script>
+</body>
+</html>

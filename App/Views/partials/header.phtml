@@ -1,0 +1,161 @@
+
+    <input type="checkbox" id="darkmodeToggle" name="dark_mode">
+  <main class="main-home" data-theme="light">
+    <header><!-- inicio Cabecalho -->
+        <nav class="nav-container">
+            <a onclick="abrirModal('janela-modal-mobileMenu')"><i class="fa-solid fa-bars mobile-menu c-whiteF"></i></a>
+            <a href="/"><img class="logo" src="img/AnyploVB.png"></a>
+            
+            
+           
+            
+            <ul class="nav-list">
+                <li class="nav-item"><a class="nav-link" href="/aleatorio">Surpreenda-me</a></li>
+                <li class="nav-item"><a class="nav-link" id="categorias" onclick="abrirModal('janela-modal-categorias')">Categorias <em class="caret-down"></em></a></li>
+                <li class="nav-item"><a class="nav-link" href="/mangas">Mangás</a></li>
+                <li class="nav-item"><a class="nav-link" href="/lista" >Minhas Listas</a></li> 
+                <li class="nav-item"><a class="nav-link" href="/grupos" >Grupos</a></li>   
+            </ul>   
+              
+                <ul class="icons">
+                    <?php if($_SESSION['id'] == '' && $_SESSION['nome'] == '') { ?>
+                        <li class="icon-list" id="icon-premium"><a onclick="abrirModal('janela-modal-premium')"><i class="fa-solid fa-crown"></i></a></li>
+                    <?php } ?>
+                    <?php if($_SESSION['tipo'] == 0 && $_SESSION['tipo'] != '') {?>
+                        <li class="icon-list"><a href="/gerenciar_home"><i class="fa-solid fa-list-check"></i></a></li>
+                    <?php } ?>
+                    <li class="icon-list"><a href="/pesquisar"><i class="fa-solid fa-magnifying-glass"></i></a></li>
+
+                    <li class="icon-list">
+                            <label class="darkmodeLabel" for="darkmodeToggle">
+                            <i class="fa-solid fa-circle-half-stroke"></i></label>
+                    </li>
+
+                    <?php if($_SESSION['id'] != '' && $_SESSION['nome'] != '') { ?>
+                        <!--<li class="icon-list" id="icon-premium"><a onclick="abrirModal('janela-modal-notifica')"><i class="fa-solid fa-bell"></i></a></li>-->
+                    <?php } else { ?>
+                        <!--<li class="icon-list" id="icon-premium"><a href="/login"><i class="fa-solid fa-bell"></i></a></li>-->
+                    <?php } ?>
+
+                    <?php if($_SESSION['id'] != '' && $_SESSION['nome'] != '') {?>
+                        <div class="header-profile" id="header-profile"><li class="icon-list"><a href="/profile"><img src="<?= $_SESSION['icone'] ?>" alt=""></a></li></ul></div>
+                    <?php } else { ?>
+                  <li class="icon-list"><a href="/login"><i class="fa-solid fa-user"></i></a></li></ul>
+        </nav>       <?php } ?>
+    </header><!--/fim Cabecalho -->
+
+        <!-- Modal categorias -->
+        <div class="janela-modal-categorias" id="janela-modal-categorias">
+            <div class="modal-categorias">
+                <div id="container-categorias">
+                    
+                        <div id="content-left-categorias">
+                            <a href="/categorias?status=Populares">Populares</a> 
+                            <a href="/categorias?status=Lancamentos">Lançamentos</a> 
+                            <a href="/categorias?status=MeAv">Melhores Avaliados</a>
+                            <a href="/categorias?status=Recem">Recém Atualizados</a>
+                        </div>
+
+                        <div id="content-right-categorias">
+                            <a href="/categorias?genero=Romance">Romance</a> 
+                            <a href="/categorias?genero=Slice of Life">Slice of Life</a> 
+                            <a href="/categorias?genero=Ação">Ação</a> 
+                            <a href="/categorias?genero=Sci-Fi">Sci-Fi</a>
+                            <a href="/categorias?genero=Seinen">Seinen</a> 
+                            <a href="/categorias?genero=Shoujo">Shoujo</a>
+                            <a href="/categorias?genero=Suspense">Suspense</a> 
+                            <a href="/categorias?genero=Sobrenatural">Sobrenatural</a> 
+                            <a href="/categorias?genero=Esportes">Esportes</a> 
+                            <a href="/categorias?genero=Drama">Drama</a> 
+                            <a href="/categorias?genero=Shounen">Shounen</a> 
+                            <a href="/categorias?genero=Isekai">Isekai</a> 
+                            <a href="/categorias?genero=Terror">Terror</a> 
+                            <a href="/categorias?genero=Aventura">Aventura</a>
+                            <a href="/categorias?genero=Fantasia">Fantasia</a>
+                            <a href="/categorias?genero=Comédia">Comédia</a>
+                        </div>
+                </div>
+            </div>
+        </div>
+
+        <!--Modal Notificações -->
+        <div class="janela-modal-notifica" id="janela-modal-notifica">
+            <div class="modal-notifica">
+                <div id="container-notifica">
+                    
+                        <h4>Notificações</h4>
+                        
+                </div>
+            </div>
+        </div>
+        
+        <?php if($_SESSION['id'] == '' && $_SESSION['nome'] == '') { ?>
+            <!-- Modal Premium -->
+            <div class="janela-modal-premium" id="janela-modal-premium">
+                <div class="modal-premium">
+                    <div class="container-premium">
+                        <h4>Seja Premium!</h4>
+                        <p>Registre-se e confirme o email para aproveitar todas as funcionalidades Anyplo!</p>
+                        <div class="content-info-premium">
+                            <p> - Histórico de leitura</p>
+                            <p> - Gerenciar listas</p>
+                            <p> - Adicionar na fila</p>
+                            <p> - Perfil de usuário</p>
+                            <p> - Avaliações</p>
+                            <p> - Download direto</p>
+                            <!--<p> - Notificações</p>-->
+                            <!--<p> - Sistema Ranqueado</p>-->
+                            <p> - Títulos por nível</p>
+                            <p> - Aba de comentários</p>
+
+                        </div> 
+                        <div class="container-img-menhera">
+                            <img src="img/Menhera.png" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        <?php } ?>
+
+        <!-- Modal mobileMenu -->
+        <div class="janela-modal-mobileMenu" id="janela-modal-mobileMenu">
+                <div class="modal-mobileMenu">
+                    <div class="container-mobileMenu">
+                        <h5>Navegar</h5>
+                        <div class="content-info-mobileMenu">
+                            <a href="/categorias?status=Populares">Populares</a> 
+                            <a href="/categorias?status=Lancamento">Lançamentos</a> 
+                            <a href="/aleatorio">Surpreenda-me</a>
+                            <a href="/mangas">Mangás</a>
+                            <a href="/lista">Minhas listas</a>
+                            <div class="dropdown">
+                                <div class="select">
+                                    <a class="selected">Gêneros<i class="fa-solid fa-chevron-down caret"></i></a>
+                                </div>
+                                <ul class="menu">
+                                    <li><a href="/categorias?genero=Romance">Romance</a> </li>
+                                    <li><a href="/categorias?genero=Slice of Life">Slice of Life</a> </li>
+                                    <li><a href="/categorias?genero=Ação">Ação</a></li>
+                                    <li><a href="/categorias?genero=Sci-Fi">Sci-Fi</a></li>
+                                    <li><a href="/categorias?genero=Seinen">Seinen</a> </li>
+                                    <li><a href="/categorias?genero=Shoujo">Shoujo</a></li>
+                                    <li><a href="/categorias?genero=Suspense">Suspense</a></li>
+                                    <li><a href="/categorias?genero=Sobrenatural">Sobrenatural</a></li>
+                                    <li><a href="/categorias?genero=Esportes">Esportes</a></li>
+                                    <li><a href="/categorias?genero=Drama">Drama</a></li>
+                                    <li><a href="/categorias?genero=Fantasia">Fantasia</a></li>
+                                    <li><a href="/categorias?genero=Shounen">Shounen</a>
+                                    <li><a href="/categorias?genero=Isekai">Isekai</a> </li>
+                                    <li><a href="/categorias?genero=Terror">Terror</a> </li>
+                                    <li><a href="/categorias?genero=Aventura">Aventura</a></li>
+                                    <li><a href="/categorias?genero=Fantasia">Fantasia</a></li>
+                                    <li><a href="/categorias?genero=Comédia">Comédia</a></li>
+                                </ul>
+                            </div> 
+                        </div>  
+                    </div>
+                </div>
+            </div>
+
+            <!-- Modal notificação -->
+            <div class="alert"></div>

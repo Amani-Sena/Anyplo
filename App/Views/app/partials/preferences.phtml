@@ -1,0 +1,48 @@
+<div class="con-settings">
+                    <div class="con-form-settings">
+                        <h4>Preferências</h4>
+                        <p>Ajustar preferências de leitura e títulos!</p>
+                            <div class="single-select">
+                                <select name="titulo" id="titulo" class="input" onchange="mudarTitle()">
+                                    <option value="null">Nenhum</option>
+                                <?php foreach($this->view->title as $indice_arr => $title) { ?>
+                                    <?php if($title['nivel'] <= $this->view->user_info['nivel']) { ?>
+                                        <?php if($this->view->user_info['titulo'] == $title['nome']) { ?>
+                                            <option value="<?= $title['nome'] ?>" selected><?= $title['nome'] ?></option>
+                                        <?php } else{ ?>
+                                            <option value="<?= $title['nome'] ?>"><?= $title['nome'] ?></option>
+                                        <?php } ?>
+                                    <?php } ?>
+
+                                    <?php if($title['nivel'] > $this->view->user_info['nivel']) { ?>
+                                        <option value="<?= $title['nome'] ?>" disabled><?= $title['nome'] ?></option>
+                                    <?php } ?>
+                                <?php } ?>
+                                </select>
+                                <i class="fa-solid fa-caret-down"></i>
+                                <label class="p-medium" for="titulo">Título</label>
+                            </div>
+                            <div class="single-select">
+                                <select name="ori" id="leitura" class="input" onchange="mudarLei()">
+                                <?php if($this->view->user_info['leitura'] == 'H') { ?>
+                                    <option value="H" selected>Horizontal</option>
+                                    <option value="V">Vertical</option>
+                                <?php } ?>
+                                    
+                                <?php if($this->view->user_info['leitura'] == 'V') { ?>
+                                    <option value="V" selected>Vertical</option>
+                                    <option value="H">Horizontal</option>
+                                <?php } ?>
+
+                                <?php if($this->view->user_info['leitura'] == null) { ?>
+                                    <option value="V">Vertical</option>
+                                    <option value="H">Horizontal</option>
+                                <?php } ?>
+                                </select>
+                                <i class="fa-solid fa-caret-down"></i>
+                                <label class="p-medium" for="ori">Leitura</label>
+                            </div>
+                        
+                        </form>
+                    </div>
+                </div>

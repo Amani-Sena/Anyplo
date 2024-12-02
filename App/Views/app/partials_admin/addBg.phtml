@@ -1,0 +1,16 @@
+<div class="header-admin-g">
+    <h3>Adicionar Background</h3>
+</div>
+<div class="body-admin-gg">
+<form action="/addBack" enctype="multipart/form-data" method="post" class="form-gerenciar">
+                        <div class="single-input-black">
+                            <input type="text" name="nome" id="nome" required class="input" >
+                            <label class="p-medium" for="nome">Nome do Background</label>
+                        </div>
+                
+                        <label onclick="BgPreview()" for="arquivoBg" class="btn-green-small-BW">Selecionar Background</label>
+                        <input type="file" name="arquivo" id="arquivoBg" class="input-small">
+                        <img class="img-preview-bg" id="img-BG" alt="">
+                        <button type="submit" class="btn-green-small-BW">Enviar Background</button>
+                    </form>
+</div>

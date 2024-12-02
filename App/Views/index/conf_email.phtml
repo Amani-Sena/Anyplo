@@ -1,0 +1,65 @@
+<?php
+
+    $chave = filter_input(INPUT_GET, "chave");
+    
+
+    if(!empty($chave)) {
+
+        if(!empty($this->view->select['id'])) {
+            $_SESSION['msg'] = "Email confirmado!";
+            $_SESSION['msgE'] = "Agradecemos pelo cadastro!";
+            $varC = true;
+        } else {
+            $_SESSION['msg'] = "Email não confirmado!";
+            $_SESSION['msgE'] = "Por favor solicite um novo link.";
+            $varC = false;
+        }
+
+    } else {
+        $_SESSION['msg'] =  "Endereço Inválido";
+    }
+
+?>
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+
+    <!-- Title -->
+    <title>Anyplo - Confirmar Email</title>
+
+    <style>
+        body {
+            background-image: url('../../img/<?= $this->view->bg ?>');
+        }
+    </style>
+
+</head>
+  
+<body>
+    <?php require_once ("../App/views/partials/headerAlt.phtml") ?><!--Cabeçalho -->
+
+    <?php if($varC) { ?>
+        <div class="con-conf">
+            <h5 class="c-whiteF">Agradecemos pelo cadastro!</h5><br>
+            
+            <div class="con-img-conf">
+                <img src="img/Menhera-chan_conf.png" alt="">
+            </div>
+            <br><h5 class="c-whiteF bold">Email confirmado.</h5><br>
+            <p class="c-whiteF">Agora você pode aproveitar ao máximo <br> tudo que temos a oferecer.</p>
+        </div>
+    <?php } else { ?>
+        <div class="con-conf">
+            <h5 class="c-whiteF">Algo deu errado...</h5><br>
+            <div class="con-img-conf">
+                <img src="img/Menhera-chan-conf2.png" alt="">
+            </div>
+            <h5 class="bold c-whiteF">Link de verificação expirado.</h5><br>
+            <p class="c-whiteF">Por favor, requisite um novo link <br> de verificação de e-mail.</p>
+        </div>
+    <?php } ?>
+
+    <?php require_once ("../App/views/partials/footer.phtml") ?><!-- Footer/Rodapé -->
+</main>
+</body>

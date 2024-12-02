@@ -1,0 +1,18 @@
+<h5>Editar Nome</h5>
+<form action="/editTitle" enctype="multipart/form-data" method="post" class="form-gerenciar">
+                <div class="single-select-black">
+                    <select name="id_titulo" class="input" required>
+                        <option value="" selected>---</option>
+                        <?php foreach($this->view->title as $indice_arr => $title) { ?>
+                            <option value="<?= $title['id'] ?>"><?= $title['nome'] ?> </option>
+                        <?php } ?>
+                    </select>
+                    <i class="fa-solid fa-caret-down"></i>
+                    <label class="p-medium" for="id_titulo">Título</label>
+                </div>
+                <div class="single-input-black">
+                    <input type="text" name="tituloN" id="tituloN" required class="input" >
+                    <label class="p-medium" for="tituloN">Título Editado</label>
+                </div>
+                <button type="submit" class="btn-green-small-BW">Editar Título</button>
+                </form>

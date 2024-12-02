@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+
+    <!-- Title -->
+    <title><?=  $this->view->mangaI['nome'] ?> - Anyplo</title>
+
+</head>
+
+<body>
+    <?php require_once ("../App/views/partials/header.phtml") ?><!--Cabeçalho -->
+
+        <div class="img-banner-manga">
+            <img src="<?=  $this->view->mangaI['pathB'] ?>" alt="">
+        </div>
+
+        <div class="container-infoM">
+            <div class="container-img">
+                <img src="<?=  $this->view->mangaI['path'] ?>" alt="">
+                <div class="buttons-add-manga" id="buttons-add-manga">
+                <?php if($this->view->mangaI['listando_sn'] == 0) { ?>
+                    <?php if(isset($_SESSION['id'])) { ?>
+                        <a onclick="addRow('/acao?acao=adicionar&id_manga=<?= $this->view->mangaI['id'] ?>', '/requestPartial?partial=addRow&id_manga=<?= $this->view->mangaI['id'] ?>', 'buttons-add-manga')"><i class="fa-solid fa-bookmark"></i></a>
+                    <?php } else { ?>
+                        <a href="/login"><i class="fa-solid fa-bookmark"></i></a>
+                    <?php } ?>
+                <?php } ?>
+
+                <?php if($this->view->mangaI['listando_sn'] >= 1) { ?>
+                    <a onclick="addRow('/acao?acao=remover&id_manga=<?= $this->view->mangaI['id'] ?>', '/requestPartial?partial=addRow&id_manga=<?= $this->view->mangaI['id'] ?>', 'buttons-add-manga')"><i class="fa-solid fa-xmark"></i></a>
+                <?php } ?>
+
+                <?php if($_SESSION['id'] != '' && $_SESSION['nome'] != '') { ?>
+                    <a onclick="abrirModal('janela-modal-addList')" class="btn-green-small-BW">Adicionar à lista</a>
+                <?php } else { ?>
+                    <a href="/login" class="btn-green-small-BW">Adicionar à lista</a>
+                <?php } ?>
+                </div>
+            </div>
+            <div class="container-info">
+                <div class="container-title-manga">
+                    <h4><?=  $this->view->mangaI['nome'] ?>
+                    <?php if($this->view->mangaI['class'] == 1) { ?>
+                        <em class="p-medium c-red"> A18</em>
+                    <?php } ?>
+                    </h4><br>
+
+                </div>
+                <div class="container-genders-manga">
+                    <span class="gender"><?=  $this->view->mangaI['genero1'] ?></span>
+                    <span class="gender"><?=  $this->view->mangaI['genero2'] ?></span>
+                    <span class="gender"><?=  $this->view->mangaI['genero3'] ?></span>
+                    <span class="gender">|</span>
+                    <span class="gender"><?=  $this->view->mangaI['tipo'] ?></span>
+                    <span class="gender">- <?php if($this->view->capI[0]['nCap'] > 0) { ?><?= $this->view->capI[0]['nCap'] ?> Capítulos <?php } else { ?> 0 Capítulos <?php } ?></span>
+                </div>
+               
+                    <div class="avaliacao">
+                        <?php if(isset($_SESSION['id'])) { ?>
+                            <input type="radio" id="empty" name="star" checked>
+
+                            <label class="star-icon ativo" onclick="aval('/acao?acao=addAval&id_manga=<?= $this->view->mangaI['id'] ?>&stars=1')"></label>
+
+                            <label class="star-icon" onclick="aval('/acao?acao=addAval&id_manga=<?= $this->view->mangaI['id'] ?>&stars=2')"></label>
+
+                            <label class="star-icon" onclick="aval('/acao?acao=addAval&id_manga=<?= $this->view->mangaI['id'] ?>&stars=3')"></label>
+
+                            <label class="star-icon" onclick="aval('/acao?acao=addAval&id_manga=<?= $this->view->mangaI['id'] ?>&stars=4')"></label>
+
+                            <label class="star-icon" onclick="aval('/acao?acao=addAval&id_manga=<?= $this->view->mangaI['id'] ?>&stars=5')"></label>
+                        <?php } else { ?>
+                            <input type="radio" id="empty" name="star" checked>
+
+                            <a class="star-icon ativo" href="/login"></a>
+
+                            <a class="star-icon" href="/login"></a>
+
+                            <a class="star-icon" href="/login"></a>
+
+                            <a class="star-icon" href="/login"></a>
+
+                            <a class="star-icon" href="/login"></a>
+                        <?php } ?>
+                            
+                            <p class="p-medium"><?php if(isset($this->view->mangaI['sum_aval']) && $this->view->mangaI['count_aval'] != 0) { ?><?= '| ' . number_format($this->view->mangaI['sum_aval'] / $this->view->mangaI['count_aval'], $decimals = 1) ?><?php } else { ?><?= '| ' . 0 ?><?php } ?> <em> | <?php if($this->view->capI[0]['views'] > 0) { ?> <?= $this->view->capI[0]['views'] ?> Visualizações <?php } else { ?> 0 Visualizações<?php } ?></em></p>
+                            
+                    </div>
+                
+                
+                <div class="container-sinopse-manga">
+                    <?=  $this->view->mangaI['sinopse'] ?>
+                </div>
+            </div>
+        </div>
+       
+        <div class="container-caps-manga">
+            <div class="caps-title-manga">
+                <h4>Capítulos</h4>
+            </div>
+            <div class="caps-info-manga">
+                <?php foreach($this->view->capI as $indice_arr => $cap) { ?>
+                    <div class="con-num-caps">
+                        <div class="n-cap-info">
+                            <em href=""><?= $cap['n_cap']?></em>
+                        </div>
+                        <div class="n-cap-ler">
+                            <a href="/paginas?n_cap=<?= $cap['n_cap'] ?>&id_manga=<?=  $cap['id_manga'] ?>">Ler</a>
+                        </div>
+                        <div class="n-cap-baixar">
+                            <a href="/baixar?n_cap=<?= $cap['n_cap'] ?>&id_manga=<?= $cap['id_manga'] ?>">Baixar</a>
+                        </div>
+                        <!--<div class="num-caps-left"><em><?= $cap['n_cap']?></em></div><div class="num-caps-right"><a href="/paginas?n_cap=<?= $cap['n_cap'] ?>&id_manga=<?=  $cap['id_manga'] ?>">Ler</a><a class="baixar-a" href="/baixar?n_cap=<?= $cap['n_cap'] ?>&id_manga=<?=  $cap['id_manga'] ?>">Baixar</a></div>-->
+                    </div>
+                <?php } ?>
+            </div>
+        </div>
+    </div>
+    <?php require_once ("../App/views/partials/footer.phtml") ?><!-- Footer/Rodapé -->
+    </main>
+    
+    <!-- Modal AddList -->
+    <div class="janela-modal" id="janela-modal-addList">
+        <div class="modal">
+            <div class="con-content-modal" id='con-content-modal'>
+                <div class="con-close">
+                    <a class="fechar"><i class="fa-solid fa-x" id="fechar"></i></a>
+                </div>
+                <h4>Adicionar à lista</h4>
+                <div id="con-form-addList">
+                        <div class="con-form">
+                            <form method="post" id="form_addlist">
+                            
+                                <div class="single-input-whiteF">
+                                    <input type="text" name="nome" id="nome" required maxlength="16" class="input">
+                                    <label class="p-medium" for="nome">Criar Nova Lista</label>
+                                </div>
+                            
+                                <div class="btn-modal">
+                                    <button type="submit" class="btn-white" id="btn-criar" onclick="createList('/criarLista', '/requestPartial?partial=addList&id_manga=<?= $this->view->mangaI['id'] ?>')">Criar lista</button>
+                                    <a class="btn-white" id="btn-cancel-addList" onclick="fecharaddList()">Cancelar</a> 
+                                </div>
+                            </form>
+                        </div>
+                </div>
+                
+                <div id="con-h-addLista">
+                    <em><?= '0' . $this->view->lista[0]['countL'] ?>/05 Listas</em>
+                    <?php if($this->view->lista[0]['countL'] < 5) { ?>
+                        <a class="btn-white-square" id="criar" onclick="abriraddList()">Criar nova lista</a>
+                    <?php } ?>
+
+                    <?php if($this->view->lista[0]['countL'] == 5) { ?>
+                        <a class="btn-white-square disabled" id="criar" onclick="abriraddList()">Criar nova lista</a>
+                    <?php } ?>
+                </div>
+                
+
+                <?php foreach($this->view->lista as $indice_arr => $lista) { ?>
+                    <?php if($lista['listando_sn'] == 0) { ?>
+                        <?php if($lista['count_itens'] < 50) { ?>
+                            <a onclick="addList('/acao?acao=addlist&id_manga=<?= $this->view->mangaI['id'] ?>&id_lista=<?= $lista['id'] ?>', '/requestPartial?partial=addList&id_manga=<?= $this->view->mangaI['id'] ?>')">
+                            <div id="lists-div-addLista">
+                                <div id="con-title-manga">
+                                    <h5><?= $lista['nome'] ?></h5>
+                                </div>
+                                <div id="con-count-manga">
+                                    <em><?= $lista['count_itens'] ?> Itens</em>
+                                    <i class="fa-regular fa-plus"></i>
+                                </div>
+                            </div>
+                            </a>
+                            <?php } else if($lista['count_itens'] >= 50) { ?>
+                                <a class="disabled">
+                                <div id="lists-div-addLista">
+                                    <div class="disabled" id="con-title-manga">
+                                        <h5><?= $lista['nome'] ?></h5>
+                                    </div>
+                                    <div class="disabled" id="con-count-manga">
+                                        <em><?= $lista['count_itens'] ?> Itens</em>
+                                        <i class="fa-regular fa-plus"></i>
+                                    </div>
+                                </div>
+                                </a>
+                            <?php } ?>
+                            <?php } else if($lista['listando_sn'] == 1) { ?> 
+                                <a onclick="addList('/acao?acao=removerMangaLista&id_manga=<?= $this->view->mangaI['id'] ?>&id_lista=<?= $lista['id'] ?>', '/requestPartial?partial=addList&id_manga=<?= $this->view->mangaI['id'] ?>')">
+                                <div id="lists-div-addLista">
+                                    <div id="con-title-manga">
+                                        <h5><?= $lista['nome'] ?></h5>
+                                    </div>
+                                    <div id="con-count-manga">
+                                        <em><?= $lista['count_itens'] ?> Itens</em>
+                                        <i class="fa-solid fa-minus"></i>
+                                    </div>
+                                </div>
+                                </a>
+                            <?php } ?>
+                <?php } ?>
+                
+            </div>
+        </div>
+    </div>
+
+    
+
+    <script src="js/manga.js"></script>
+</body>
+</html> 

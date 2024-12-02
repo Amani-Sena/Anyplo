@@ -1,0 +1,321 @@
+@charset "UTF-8";
+.img-banner-manga {
+  top: 0;
+  margin-top: 3.1rem;
+  width: 100%;
+  height: 25.6rem;
+  justify-content: center;
+  align-items: center;
+}
+
+.img-banner-manga img {
+  -o-object-fit: cover;
+     object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+
+.container-infoM {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  margin-left: auto;
+  margin-right: auto;
+  width: 88%;
+  margin-bottom: 2.6rem;
+}
+
+.container-img {
+  float: left;
+  width: 13rem;
+  min-width: 12rem;
+  height: 14.4rem;
+  text-align: center;
+}
+
+.buttons-add-manga {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 0.6rem;
+}
+
+.buttons-add-manga i {
+  font-size: 1.5rem;
+  color: var(--green);
+}
+
+.container-img img {
+  position: relative;
+  margin-top: -7.8rem;
+  width: 100%;
+  height: 18rem;
+}
+
+.container-img i {
+  padding-right: 0.8rem;
+}
+
+.container-info {
+  float: left;
+  margin-left: 1.25rem;
+  width: 100%;
+  margin-top: 1.25rem;
+  color: var(--black);
+}
+
+.container-genders-manga {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  color: var(--black);
+}
+
+.gender {
+  padding-right: 0.6rem;
+  transition: 0.3s;
+}
+
+.container-sinopse-manga {
+  line-height: 1.4rem;
+  font-size: 1rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 5;
+  -webkit-box-orient: vertical;
+  width: 100%;
+  transition: 0.3s;
+  text-align: justify;
+}
+
+.avaliacao {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.avaliacao input[type=radio] {
+  display: none;
+}
+
+.star-icon {
+  margin: 10px 2px;
+  font-size: 2.2rem;
+  cursor: pointer;
+  color: var(--green);
+}
+
+.star-icon::before {
+  content: "★";
+}
+
+.star-icon.ativo ~ .star-icon::before {
+  content: "☆";
+}
+
+.avaliacao:hover .star-icon::before {
+  content: "★";
+}
+
+.star-icon:hover ~ .star-icon::before {
+  content: "☆";
+}
+
+.container-caps-manga {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  margin-left: auto;
+  margin-right: auto;
+  padding-bottom: 2rem;
+  width: 88%;
+}
+
+.caps-info-manga {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  flex-direction: row;
+  grid-column-gap: 1.2rem;
+  grid-row-gap: 0.2rem;
+}
+
+.list-caps {
+  display: flex;
+  flex-wrap: wrap;
+  text-align: center;
+}
+
+.caps-title-manga h4 {
+  color: var(--black);
+}
+
+.con-num-caps {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  border: 1px solid var(--green);
+  border-radius: 2rem;
+  overflow: hidden;
+  min-height: 2.8rem;
+  margin-top: 1.6rem;
+}
+
+.n-cap-info {
+  display: flex;
+  justify-content: center;
+  color: var(--whiteF);
+  background-color: var(--green);
+  align-items: center;
+  width: 20%;
+  height: 100%;
+  font-size: 1.2rem;
+  padding: 0.2rem;
+}
+
+.n-cap-ler {
+  display: flex;
+  justify-content: center;
+  color: var(--blackF);
+  align-items: center;
+  width: 36%;
+  height: 100%;
+}
+
+.n-cap-ler a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  text-align: center;
+  font-size: 1.2rem;
+  height: 100%;
+}
+
+.n-cap-ler a:hover {
+  background-color: var(--green);
+  color: var(--whiteF);
+}
+
+.n-cap-baixar {
+  display: flex;
+  justify-content: center;
+  color: var(--blackF);
+  align-items: center;
+  width: 40%;
+  height: 100%;
+}
+
+.n-cap-baixar a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  text-align: center;
+  font-size: 1.2rem;
+  height: 100%;
+}
+
+.n-cap-baixar a:hover {
+  background-color: var(--green);
+  color: var(--whiteF);
+}
+
+.num-caps-left {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  background-color: var(--green);
+}
+
+.num-caps-right a {
+  font-size: 1.2rem;
+  padding: 2rem 0.8rem 2rem 0.8rem;
+}
+
+.num-caps-right a:hover {
+  background-color: var(--green);
+  color: var(--whiteF);
+}
+
+.num-caps-left em {
+  color: var(--whiteF);
+  font-size: 1.2rem;
+  padding: 2rem 1rem 2rem 1rem;
+}
+
+@media (max-width: 999px) {
+  .container-infoM {
+    width: 96%;
+  }
+  .container-caps-manga {
+    width: 96%;
+  }
+}
+@media (max-width: 1600px) {
+  .caps-info-manga {
+    grid-template-columns: repeat(6, 1fr);
+  }
+}
+@media (max-width: 660px) {
+  .container-infoM {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-bottom: 2.6rem;
+  }
+  .caps-info-manga {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .caps-info-manga {
+    justify-content: space-around;
+  }
+  .num-caps-right a {
+    font-size: 1.1rem;
+    padding: 2rem 0.6rem 2rem 0.6rem;
+  }
+  .num-caps-left em {
+    font-size: 1.1rem;
+    padding: 2rem 0.6rem 2rem 0.6rem;
+  }
+  .con-num-caps {
+    margin-right: 0;
+  }
+  .caps-title-manga h4 {
+    text-align: center;
+  }
+  .container-img {
+    margin-left: auto;
+    margin-right: auto;
+    width: 12rem;
+    min-width: 12rem;
+    height: 14.4rem;
+  }
+  .container-title-manga {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+  }
+  .container-title-manga h4 {
+    text-align: center;
+  }
+  .container-info {
+    margin-left: 0rem;
+  }
+  .container-genders-manga {
+    justify-content: center;
+    margin-top: 1.2rem;
+  }
+  .gender {
+    padding-right: 0.4rem;
+  }
+  .avaliacao {
+    justify-content: center;
+  }
+  .container-sinopse-manga {
+    text-align: center;
+  }
+}/*# sourceMappingURL=manga.css.map */
